@@ -1,0 +1,105 @@
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 3rem;
+}
+
+.container > *{
+  min-width: 25rem;
+  max-width: 40rem;
+}
+
+img{
+  border-radius: 3rem;
+  flex: 1 0;
+  object-fit: cover;
+  height: 35rem;
+  margin: 1rem;
+}
+
+img:hover{
+  opacity: .8;
+  cursor: pointer;
+}
+
+/* .details info{
+  opacity: 0;
+  width: 150%;
+  height: 100%;
+  position: relative;
+  top: 40;
+  left: 40;
+  background-color: rgba(0, 0, 0, 0.0);
+  z-index: 2;
+  display: inline;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+  cursor: pointer;
+} */
+
+.details{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  border-radius: 3rem;
+  padding: 2rem;
+  color: black;
+  margin-left: 1rem;
+}
+
+.details .header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.details .header .name{
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.details .header .favorite{
+  color: #e72929;
+  font-size: 2.5rem;
+}
+
+.details .header .favorite.not{
+  color: gray;
+}
+
+.details .description{
+  padding: .6rem 2rem .6rem 0;
+  border-radius: 10rem;
+  font-size: 1.8rem;
+}
+
+.details .price{
+  font-size: 1.8rem;
+  margin: 2rem 2rem 2rem 0;
+  color: green;
+}
+
+.details .price::before{
+  content: "Price: ";
+  color: darkgray;
+}
+
+.details .material-icons{
+  color: white;
+  background-color: #e72929;
+  border: none;
+  width: 3.6rem;
+  align-items: center;
+  border-radius: 10rem;
+  font-size: 1.3rem;
+  padding: 1rem;
+  outline: none;
+}
+
+.details .material-icons:hover{
+  opacity: .9;
+  cursor: pointer;
+}

@@ -1,0 +1,67 @@
+p{
+  text-align: center;
+  font-family: "QuickSand", sans-serif;
+  font-weight: 600;
+}
+
+ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li a{
+  height: 21.5rem;
+  width: 20rem;
+  border: 1px solid whitesmoke;
+  border-radius: 1.5rem;
+  margin-left: 10px;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: #e72929;
+}
+
+li a:hover{
+  opacity: 80%;
+  cursor: pointer;
+}
+
+li a img{
+  object-fit: cover;
+  height: 14.5rem;
+}
+
+.content{
+  margin-top: .3rem;
+  padding: .5rem 1rem;
+  position: relative;
+  height: 7rem;
+}
+
+.favorite{
+  position: absolute;
+  top: .5rem;
+  right: 1rem;
+  font-size: 1.2rem;
+}
+
+.favorite.not{
+  color: gray;
+}
+
+.stars{
+  margin-bottom: .2rem;
+}
+
+.price{
+  background: white;
+  color: #414141;
+  margin-top: .5rem;
+  font-size: 1.5rem;
+  text-align: center;
+}

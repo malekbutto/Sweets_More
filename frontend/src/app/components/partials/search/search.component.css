@@ -1,0 +1,17 @@
+div{
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  margin-bottom: .5rem;
+}
+
+div input{
+  border-radius: 10rem 10rem 10rem 10rem;
+  border: none;
+  height: 3rem;
+  width: 20rem;
+  background-color: #f1f1f1;
+  padding: 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+}

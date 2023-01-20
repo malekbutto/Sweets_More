@@ -1,0 +1,38 @@
+<!-- <app-not-found [visible]="!product" notFoundMessage="Product Not Found!"
+    resetLinkText="Back To HomePage">
+</app-not-found> -->
+<div *ngIf="food" class="container">
+    <img [src]="food.imageUrl" [alt]="food.name">
+
+    <div class="details">
+        <div class="header">
+            <span class="name">
+                {{food.name}}
+            </span>
+            <span class="favorite {{food.favorite?'':'not'}}">
+                ❤
+            </span>
+        </div>
+            <div class="rating">
+                <star-rating
+                [value]="food.stars"
+                [totalstars]="5"
+                checkedcolor="red"
+                uncheckedcolor="black"
+                size="30px"
+                [readonly]="true">
+                </star-rating>
+            </div>
+            <div class="description">
+                {{food.description}}
+            </div>
+            <div class="price">
+                <span>{{food.price}} NIS / {{food.piece}}</span>
+            </div>
+            <span class="material-icons">
+              add_shopping_cart
+              </span>
+            <!-- (click)="addToCart()" -->
+            <!-- <button (click)="addToCart()">Add To Cart</button> -->
+    </div>
+</div>
