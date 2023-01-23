@@ -1,4 +1,5 @@
 import { Food } from "./app/shared/models/Food";
+import { Tag } from "./app/shared/models/Tag";
 
 export const foods:Food[] = [
   {
@@ -474,4 +475,11 @@ export const foods:Food[] = [
     piece: "Packet - 0.5 KG",
     imageUrl:'/assets/Images/Category/OurCuisine/Sweet_Pumpkin.jpg'
   }
+]
+
+export const sample_tags:Tag[] = [
+  {name: 'All', count:43},
+  {name: 'Sweets', count:20},
+  {name: 'Pastries', count:13},
+  {name: 'Our Cuisine', count:10},
 ]

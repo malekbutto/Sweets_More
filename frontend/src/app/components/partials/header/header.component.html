@@ -1,6 +1,9 @@
 <header>
   <div class="container">
-    <a routerLink="/" class="logo"> Sweets & More </a>
+    <a routerLink="/" class="logo"> Sweets & More</a>
+    <!-- <div>
+    <img src="..\assets\Images\Logo\Logo.JPG" alt="Logo">
+    </div> -->
     <app-search></app-search>
     <nav>
       <ul>
@@ -23,7 +26,8 @@
           </div>
         </li>
         <li>
-          <a routerLink="/cart-page">Cart <span>3</span></a>
+          <a routerLink="/cart-page">
+            Cart <span *ngIf="cartQuantity">{{cartQuantity}}</span></a>
         </li>
       </ul>
     </nav>

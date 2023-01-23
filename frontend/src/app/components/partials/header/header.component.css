@@ -28,10 +28,11 @@ a.logo{
   padding: 1.5rem;
 }
 
-/* a.users{
-  font-weight: bold;
-  padding: 1.5rem;
-  margin: 5px 5px 0 0;
+/* img{
+  width: 65px;
+  height: 65px;
+  flex: 0;
+
 } */
 
 ul{
