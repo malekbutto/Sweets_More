@@ -25,8 +25,14 @@ a:hover{
 
 a.logo{
   font-weight: bold;
-  padding: 1rem;
+  padding: 1.5rem;
 }
+
+/* a.users{
+  font-weight: bold;
+  padding: 1.5rem;
+  margin: 5px 5px 0 0;
+} */
 
 ul{
   display: flex;
@@ -51,6 +57,10 @@ a span{
   position: relative;
 }
 
+.menu-settings{
+  position: relative;
+}
+
 .menu{
   position: absolute;
   z-index: 1;
@@ -59,6 +69,10 @@ a span{
 }
 
 .menu-container:hover .menu{
+  display: block;
+}
+
+.menu-settings:hover .menu{
   display: block;
 }
 
