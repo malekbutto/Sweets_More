@@ -29,25 +29,24 @@
           <option>4</option>
           <option>5</option>
         </select> -->
-        <span
-          class="material-symbols-outlined"
+        <span class="material-icons"
           (click)="changeQuantity(cartItem, '-1')"
         >
-          remove_circle_outline
+        remove_circle_outline
         </span>
         <span class="quantity">
           {{ foodQuantity }}
         </span>
         <span
-          class="material-symbols-outlined"
+          class="material-icons"
           (click)="changeQuantity(cartItem, '1')"
         >
-          add_circle_outline
+        add_circle_outline
         </span>
       </div>
       <div>{{ cartItem.food.price }} NIS</div>
-      <div class="material-symbols-outlined" (click)="removeFromCart(cartItem)">
-        Remove
+      <div class="material-icons" (click)="removeFromCart(cartItem)">
+        delete
       </div>
       <!-- <button class="remove-button" (click)="removeFromCart(cartItem)">
                 Remove

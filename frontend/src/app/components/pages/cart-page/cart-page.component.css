@@ -53,7 +53,7 @@ ul li select{
   font-weight: 100;
 }
 
-ul .material-symbols-outlined{
+ul .material-icons{
   border-radius: 1rem;
   border: none;
   padding: .5rem;
@@ -62,7 +62,7 @@ ul .material-symbols-outlined{
   outline: none;
 }
 
-ul .material-symbols-outlined:hover{
+ul .material-icons:hover{
   opacity: 1;
   cursor: pointer;
 }
