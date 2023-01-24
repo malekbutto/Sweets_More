@@ -23,7 +23,6 @@ export class FoodService {
 
   getFoodById(id: number): Observable<Food>{
     return this.http.get<Food>(FOODS_BY_ID_URL + id);
-
   }
 
   getAllTags(): Observable<Tag[]>{
