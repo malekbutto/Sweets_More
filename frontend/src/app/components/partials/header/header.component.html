@@ -18,16 +18,19 @@
           </div>
         </li>
         <li *ngIf="isAuth" class="menu-container">
-          <a routerLink="/dashboard">{{user.name}}</a>
+          <a routerLink="/dashboard">{{ user.name }}</a>
           <div class="menu">
             <a routerLink="/profile">Profile</a>
             <a routerLink="/orders">Orders</a>
             <a (click)="logout()">Logout</a>
           </div>
         </li>
-        <li>
+        <li *ngIf="isAuth">
           <a routerLink="/cart-page">
-            Cart <span *ngIf="cartQuantity">{{cartQuantity}}</span>
+            <span class="cart">
+              <span class="material-icons"> shopping_cart </span>
+            </span>
+            <span *ngIf="cartQuantity">{{ cartQuantity }}</span>
           </a>
         </li>
       </ul>

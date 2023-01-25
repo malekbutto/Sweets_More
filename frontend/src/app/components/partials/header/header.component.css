@@ -37,19 +37,20 @@ ul{
   display: flex;
   list-style-type: none;
   margin: 0;
+  font-weight: 700;
 }
 
 ul a{
-  padding: 1.4rem;
+  padding: 1.3rem;
   display: inline-block;
 }
 
 a span{
   background: #ff4d4d;
   color: white;
-  padding: 0.1rem 0.45rem;
+  padding: 0.3rem 0.3rem;
   border-radius: 100rem;
-  font-size: 0.9rem;
+  font-size: 1.25rem;
 }
 
 .menu-container{

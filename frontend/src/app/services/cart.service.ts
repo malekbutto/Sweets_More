@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Cart } from '../shared/models/Cart';
 import { CartItem } from '../shared/models/CartItem';
@@ -11,22 +12,23 @@ export class CartService {
   private cart:Cart = this.getCartFromLocalStorage();
   private cartSubject: BehaviorSubject<Cart> = new BehaviorSubject(this.cart);
 
-  constructor() { }
+  constructor(private toastrService:ToastrService) { }
 
   addToCart(food:Food):void{
     let cartItem = this.cart.items.find(item => item.food.id === food.id);
     if (cartItem){
-      // alert("already in cart");
-      // this.changeQuantity(product.id, cartItem.quantity + 1);
+      this.toastrService.error(`${food.name} already in cart`)
       return;
     }
     this.cart.items.push(new CartItem(food));
     this.setCartToLocalStorage();
+    this.toastrService.success(`${food.name} added to cart`,'')
   }
 
-  removeFromCart(foodId:number): void{
+  removeFromCart(foodId:number,foodName:string): void{
     this.cart.items = this.cart.items.filter(item => item.food.id != foodId);
     this.setCartToLocalStorage();
+    this.toastrService.success(`${foodName} removed from cart`,'')
   }
 
   changeQuantity(foodId:number, quantity:number){
