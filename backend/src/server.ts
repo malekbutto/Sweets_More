@@ -49,7 +49,7 @@ app.post("/api/users/login", (req, res) => {
   if (user) {
     res.send(generateTokenResponse(user));
   } else {
-    res.status(400).send("Username or Password in not valid!");
+    res.status(400).send("Username or Password are not valid!");
   }
 })
 

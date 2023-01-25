@@ -1,6 +1,4 @@
 header{
-  text-align: center;
-  justify-content: center;
   position: relative;
   background: white;
   padding: 0;
@@ -25,7 +23,7 @@ a:hover{
 
 a.logo{
   font-weight: bold;
-  padding: 1.5rem;
+  padding: 1rem;
 }
 
 /* img{
@@ -42,7 +40,7 @@ ul{
 }
 
 ul a{
-  padding: 1rem;
+  padding: 1.4rem;
   display: inline-block;
 }
 
