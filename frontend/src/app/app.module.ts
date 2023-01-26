@@ -46,9 +46,10 @@ import { DefaultButtonComponent } from './components/partials/default-button/def
     HttpClientModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
-      timeOut:3000,
-      positionClass:'toast-top-center',
-      newestOnTop:false
+      timeOut:2000,
+      positionClass:'toast-bottom-right',
+      newestOnTop:false,
+      closeButton: true,
     }),
   ],
   providers: [],

@@ -4,8 +4,8 @@ export class Food {
   price!: number;
   tags!: string;
   description!: string;
-  favorite: boolean = false;
-  stars: number = 0;
+  favorite!: boolean;
+  stars!: number;
   piece!: string;
   imageUrl!: string;
 }
