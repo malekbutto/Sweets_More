@@ -2,8 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { USER_LOGIN_URL } from '../shared/constants/urls';
+import { USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
 import { IUserLogin } from '../shared/interfaces/IUserLogin';
+import { IUserRegister } from '../shared/interfaces/IUserRegister';
 import { User } from '../shared/models/Users';
 
 const USER_KEY = 'user';
@@ -22,9 +23,10 @@ export class UserService {
     return this.http.post<User>(USER_LOGIN_URL, userLogin).pipe(
       tap({
         next: (user) => {
-          this.setuserToLocalStorage(user);
+          alert(user);
+          this.setUserToLocalStorage(user);
           this.userSubject.next(user);
-          this.toastrService.success(`Welcome to Sweet & More, ${user.name}!`,
+          this.toastrService.success(`Welcome to Sweet & More, ${user.name}`,
           'Login successful')
         },
         error: (errorResponse) => {
@@ -35,21 +37,37 @@ export class UserService {
     );
   }
 
+  register(userRegister:IUserRegister): Observable<User>{
+    return this.http.post<User>(USER_REGISTER_URL, userRegister).pipe(
+      tap({
+        next: (user) => {
+          this.setUserToLocalStorage(user);
+          this.userSubject.next(user);
+          this.toastrService.success(`Welcome to Sweet & More, ${user.name}`,
+          'Register Successful')
+        },
+        error: (errorResponse) => {
+          this.toastrService.error(errorResponse.error, 'Register Failed!');
+        }
+      })
+    )
+  }
+
   logout(){
     this.userSubject.next(new User());
     localStorage.removeItem(USER_KEY);
     window.location.reload();
   }
 
-  private setuserToLocalStorage(user:User){
-    localStorage.setItem(USER_KEY,JSON.stringify(user));
+  private setUserToLocalStorage(user:User){
+    localStorage.setItem(USER_KEY, JSON.stringify(user));
   }
 
   private getUserFromLocalStorage():User{
     const userJson = localStorage.getItem(USER_KEY);
     if (userJson)
+      return JSON.parse(userJson) as User;
 
-    return JSON.parse(userJson) as User;
     return new User;
   }
 

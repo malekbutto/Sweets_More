@@ -27,10 +27,10 @@
         </li>
         <li *ngIf="isAuth">
           <a routerLink="/cart-page">
-            <span class="cart">
+            <!-- <span class="cart">
               <span class="material-icons"> shopping_cart </span>
-            </span>
-            <span *ngIf="cartQuantity">{{ cartQuantity }}</span>
+            </span> -->
+            Cart <span *ngIf="cartQuantity">{{ cartQuantity }}</span>
           </a>
         </li>
       </ul>

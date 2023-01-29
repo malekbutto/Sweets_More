@@ -1,8 +1,10 @@
 export class User{
   id!:number;
-  email!:string;
   name!:string;
-  address!:string;
+  email!:string;
+  userName!: string;
   token!:string;
+  phone!: string;
+  address!:string;
   isAdmin!:boolean;
 }
