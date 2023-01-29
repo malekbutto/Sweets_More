@@ -23,7 +23,6 @@ export class UserService {
     return this.http.post<User>(USER_LOGIN_URL, userLogin).pipe(
       tap({
         next: (user) => {
-          alert(user);
           this.setUserToLocalStorage(user);
           this.userSubject.next(user);
           this.toastrService.success(`Welcome to Sweet & More, ${user.name}`,
