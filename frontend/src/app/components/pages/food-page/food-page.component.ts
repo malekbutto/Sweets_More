@@ -28,7 +28,7 @@ export class FoodPageComponent implements OnInit {
   }
 
   addToCart(){
-    if (localStorage.getItem('user'))
+    if (localStorage.getItem('User'))
       this.cartService.addToCart(this.food);
     else
       this.router.navigateByUrl('/login');

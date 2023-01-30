@@ -7,7 +7,7 @@ import { IUserLogin } from '../shared/interfaces/IUserLogin';
 import { IUserRegister } from '../shared/interfaces/IUserRegister';
 import { User } from '../shared/models/Users';
 
-const USER_KEY = 'user';
+const USER_KEY = 'User';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,10 +19,14 @@ export class UserService {
     this.userObservable = this.userSubject.asObservable();
   }
 
+  public get currentUser():User{
+    return this.userSubject.value;
+  }
+
   login(userLogin:IUserLogin):Observable<User>{
     return this.http.post<User>(USER_LOGIN_URL, userLogin).pipe(
       tap({
-        next: (user) => {
+        next: (user) =>{
           this.setUserToLocalStorage(user);
           this.userSubject.next(user);
           this.toastrService.success(`Welcome to Sweet & More, ${user.name}`,
@@ -31,7 +35,6 @@ export class UserService {
         error: (errorResponse) => {
           this.toastrService.error(errorResponse.error, 'Login Failed!');
         }
-
       })
     );
   }

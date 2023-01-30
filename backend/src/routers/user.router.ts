@@ -36,7 +36,8 @@ router.post(
 );
 
 router.post("/register", asyncHandler(async (req, res) => {
-    const { name, email, userName, password, phone, address } = req.body;
+    // const { name, email, userName, password, phone, address } = req.body;
+    const { name, email, password, address } = req.body;
     const user = await UserModel.findOne({email});
     // const userWithUserName = await UserModel.findOne({username});
     if (user) {
@@ -53,9 +54,9 @@ router.post("/register", asyncHandler(async (req, res) => {
       id:'',
       name,
       email: email.toLowerCase(),
-      userName,
+      // userName,
       password: encryptedPassword,
-      phone,
+      // phone,
       address,
       isAdmin: false
     }

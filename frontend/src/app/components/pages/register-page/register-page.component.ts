@@ -23,21 +23,20 @@ export class RegisterPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.registerForm = this.formBuilder.group(
-      {
+    this.registerForm = this.formBuilder.group({
         name: ['', [Validators.required, Validators.minLength(5)]],
         email: ['', [Validators.required, Validators.email]],
-        userName: ['', [Validators.required, Validators.minLength(5)]],
+        // userName: ['', [Validators.required, Validators.minLength(5)]],
         password: ['', [Validators.required, Validators.minLength(5)]],
         confirmPassword: ['', [Validators.required]],
-        phone: [
-          '',
-          [
-            Validators.required,
-            Validators.maxLength(10),
-            Validators.minLength(7),
-          ],
-        ],
+        // phone: [
+        //   '',
+        //   [
+        //     Validators.required,
+        //     Validators.maxLength(10),
+        //     Validators.minLength(7),
+        //   ],
+        // ],
         address: ['', [Validators.required, Validators.minLength(10)]],
       },
       {
@@ -61,10 +60,10 @@ export class RegisterPageComponent implements OnInit {
     const user: IUserRegister = {
       name: fv.name,
       email: fv.email,
-      userName: fv.userName,
+      // userName: fv.userName,
       password: fv.password,
       confirmPassword: fv.confirmPassword,
-      phone: fv.phone,
+      // phone: fv.phone,
       address: fv.address,
     };
 

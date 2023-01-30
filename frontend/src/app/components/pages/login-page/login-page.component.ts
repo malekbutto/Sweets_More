@@ -39,7 +39,5 @@ export class LoginPageComponent implements OnInit {
       password: this.fc.password.value}).subscribe(() => {
         this.router.navigateByUrl(this.returnUrl);
       });
-
   }
-
 }
