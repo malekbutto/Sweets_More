@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/services/cart.service';
 import { UserService } from 'src/app/services/user.service';
-import { Order } from 'src/app/shared/models/Orders';
+import { Order } from 'src/app/shared/models/Order';
 
 @Component({
   selector: 'app-checkout-page',
