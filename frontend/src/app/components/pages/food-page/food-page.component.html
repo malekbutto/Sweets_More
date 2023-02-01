@@ -12,7 +12,7 @@
       <span class="name">
         {{ food.name }}
       </span>
-      <span class="favorite {{ food.favorite ? '' : 'not' }}"> ❤ </span>
+      <span class="favorite {{ food.favorite ? '' : 'not' }}" (click)="favorite()"> ❤ </span>
     </div>
     <div class="rating">
       <star-rating

@@ -4,6 +4,7 @@
   margin: 0 2rem 6rem 2rem;
   flex-wrap: wrap;
   justify-content: center;
+  border-bottom: 1px solid #e72929;
 }
 
 .content{

@@ -1,0 +1,44 @@
+footer{
+  position: relative;
+  background: white;
+  padding: 0;
+  margin: 1rem;
+}
+
+a{
+  margin-right: 0.5rem;
+}
+
+.container{
+  display: flex;
+  justify-content: space-between;
+  flex: 3;
+  padding: 0;
+}
+
+.title{
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  padding: 0;
+
+}
+
+
+.social-media{
+  display: flex;
+  font-weight: bold;
+  padding: 1rem;
+
+}
+
+.owner{
+  display: flex;
+  font-weight: bold;
+}
+
+.contact{
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}

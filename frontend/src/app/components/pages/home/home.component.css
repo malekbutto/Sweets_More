@@ -11,6 +11,8 @@ ul{
   flex-wrap: wrap;
   list-style-type: none;
   padding: 0;
+  border-bottom: 1px solid #e72929;
+
 }
 
 ul li a{

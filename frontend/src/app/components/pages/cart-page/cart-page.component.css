@@ -3,6 +3,8 @@
   flex-wrap: wrap;
   align-items: flex-start;
   margin: 1.5rem;
+  border-bottom: 1px solid #e72929;
+
 }
 
 ul{

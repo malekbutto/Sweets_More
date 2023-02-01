@@ -26,6 +26,9 @@ import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
 import { CheckoutPageComponent } from './components/pages/checkout-page/checkout-page.component';
 import { OrderItemsListComponent } from './components/partials/order-items-list/order-items-list.component';
 import { MapComponent } from './components/partials/map/map.component';
+import { FooterComponent } from './components/partials/footer/footer.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AuthInterceptor } from './auth/guards/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -47,7 +50,8 @@ import { MapComponent } from './components/partials/map/map.component';
     LoadingComponent,
     CheckoutPageComponent,
     OrderItemsListComponent,
-    MapComponent
+    MapComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -62,8 +66,10 @@ import { MapComponent } from './components/partials/map/map.component';
       newestOnTop:false,
       closeButton: true,
     }),
+    FontAwesomeModule,
   ],
   providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
