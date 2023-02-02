@@ -29,6 +29,8 @@ import { MapComponent } from './components/partials/map/map.component';
 import { FooterComponent } from './components/partials/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthInterceptor } from './auth/guards/auth.interceptor';
+import { OrdersPageComponent } from './components/pages/orders-page/orders.component';
+import { AllOrdersPageComponent } from './components/pages/all-orders-page/all-orders-page.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { AuthInterceptor } from './auth/guards/auth.interceptor';
     CheckoutPageComponent,
     OrderItemsListComponent,
     MapComponent,
-    FooterComponent
+    FooterComponent,
+    OrdersPageComponent,
+    AllOrdersPageComponent,
   ],
   imports: [
     BrowserModule,

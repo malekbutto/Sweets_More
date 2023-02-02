@@ -15,13 +15,14 @@
           <div class="menu">
             <a routerLink="/users">Users</a>
             <a routerLink="/allOrders">All Orders</a>
+            <a routerLink="/manageProducts">Manage Products</a>
           </div>
         </li>
         <li *ngIf="isAuth" class="menu-container">
           <a routerLink="/dashboard">{{ user.name }}</a>
           <div class="menu">
             <a routerLink="/profile">Profile</a>
-            <a routerLink="/orders">Orders</a>
+            <a routerLink="/orders">My Orders</a>
             <a (click)="logout()">Logout</a>
           </div>
         </li>
