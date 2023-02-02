@@ -12,7 +12,7 @@ ul{
   list-style-type: none;
   padding: 0;
   border-bottom: 1px solid #e72929;
-
+  font-size: 1.4rem;
 }
 
 ul li a{
