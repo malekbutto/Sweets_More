@@ -444,7 +444,7 @@ export const sample_foods:any[] = [
   },
   {
     id: 88,
-    name: "Shish_Barak",
+    name: "Shish Barak",
     price: 60,
     tags: "Our Cuisine",
     description: "These are Middle Eastern meat filled dumplings cooked in a yogurt based sauce. It is one of the top comfort foods in Arabic cuisine",
