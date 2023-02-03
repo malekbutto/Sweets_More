@@ -31,6 +31,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthInterceptor } from './auth/guards/auth.interceptor';
 import { OrdersPageComponent } from './components/pages/orders-page/orders.component';
 import { AllOrdersPageComponent } from './components/pages/all-orders-page/all-orders-page.component';
+import { ProfilePageComponent } from './components/pages/profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { AllOrdersPageComponent } from './components/pages/all-orders-page/all-o
     FooterComponent,
     OrdersPageComponent,
     AllOrdersPageComponent,
+    ProfilePageComponent,
   ],
   imports: [
     BrowserModule,
