@@ -21,7 +21,7 @@ form{
   width: 100%;
 }
 
-.button-container{
+.buttons-container{
   flex-basis: 100%;
   display: flex;
   justify-content: center;

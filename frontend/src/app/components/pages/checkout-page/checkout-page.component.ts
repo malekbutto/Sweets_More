@@ -5,6 +5,8 @@ import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/services/cart.service';
 import { OrderService } from 'src/app/services/order.service';
 import { UserService } from 'src/app/services/user.service';
+import { IOrder } from 'src/app/shared/interfaces/IOrder';
+import { CartItem } from 'src/app/shared/models/CartItem';
 import { Order } from 'src/app/shared/models/Order';
 
 @Component({
@@ -16,6 +18,8 @@ export class CheckoutPageComponent implements OnInit{
 
   order:Order = new Order();
   checkoutForm!:FormGroup;
+  returnUrl: any;
+  activatedRoute: any;
 
   constructor(
     cartService:CartService,
@@ -34,8 +38,10 @@ export class CheckoutPageComponent implements OnInit{
       name:[name, Validators.required],
       address:[address, Validators.required]
     });
-  }
 
+    // this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl;
+
+  }
 
   get fc (){
     return this.checkoutForm.controls;
@@ -51,18 +57,36 @@ export class CheckoutPageComponent implements OnInit{
       this.toastrService.warning('Please select your location on the map', 'Location');
       return;
     }
+
+    const order: IOrder = {
+      id: String(this.order.id),
+      // items:CartService,
+      totalPrice:this.order.totalPrice,
+      name:this.order.name,
+      address:this.order.address,
+      addressLatLng:this.order.addressLatLng,
+      createdAt:this.order.createdAt,
+      status:this.order.status,
+    };
+
     this.order.name = this.fc.name.value;
     this.order.address = this.fc.address.value;
 
-    this.orderService.create(this.order).subscribe({
-      next: () => {
-        this.router.navigateByUrl('/payment');
-      },
-      error: (errorResponse) => {
-        this.toastrService.error(errorResponse.error, 'Cart');
-      }
-    })
+    console.log(this.order);
 
+    this.orderService.saveOrderToMongoDB(order).subscribe({
+        next: () => {
+          this.router.navigateByUrl('/');
+        }
+    });
+
+    // this.orderService.create(this.order).subscribe({
+    //   next: () => {
+    //     this.router.navigateByUrl('/payment');
+    //   },
+    //   error: (errorResponse) => {
+    //     this.toastrService.error(errorResponse.error, 'Cart');
+    //   }
+    // })
   }
-
 }

@@ -9,7 +9,7 @@ export class LocationService {
 
   constructor() { }
 
-  getCurrentLocation():Observable<LatLngLiteral>{
+  getCurrentLocation(): Observable<LatLngLiteral>{
     return new Observable((observer) => {
       if(!navigator.geolocation) return;
 
@@ -23,7 +23,7 @@ export class LocationService {
         (error) => {
           observer.error(error);
         }
-        )
+      )
     })
   }
 }
