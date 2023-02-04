@@ -1,8 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Observable, tap } from 'rxjs';
 import { foods, sample_tags } from 'src/data';
-import { FOODS_BY_ID_URL, FOODS_BY_SEARCH_URL, FOODS_BY_TAG_URL, FOODS_TAGS_URL, FOODS_URL } from '../shared/constants/urls';
+import { ADD_FOOD, FOODS_BY_ID_URL, FOODS_BY_SEARCH_URL, FOODS_BY_TAG_URL, FOODS_TAGS_URL, FOODS_URL } from '../shared/constants/urls';
+import { IAddProduct } from '../shared/interfaces/IAddProduct';
 import { Food } from '../shared/models/Food';
 import { Tag } from '../shared/models/Tag';
 
@@ -11,7 +14,7 @@ import { Tag } from '../shared/models/Tag';
 })
 export class FoodService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private toastrService:ToastrService, private router: Router) { }
 
   getAll(): Observable<Food[]>{
     return this.http.get<Food[]>(FOODS_URL);
@@ -33,6 +36,20 @@ export class FoodService {
     return tag == "All" ?
     this.getAll() :
     this.http.get<Food[]>(FOODS_BY_TAG_URL + tag);
+  }
+
+  addProduct(addProduct:IAddProduct): Observable<Food>{
+    return this.http.post<Food>(ADD_FOOD, addProduct).pipe(
+      tap({
+        next: (product) => {
+          this.toastrService.success(`${product.name} Added Successfully`,
+          'New Product')
+        },
+        error: (errorResponse) => {
+          this.toastrService.error(errorResponse.error, 'Adding New Product Failed!');
+        }
+      })
+    )
   }
 
 }

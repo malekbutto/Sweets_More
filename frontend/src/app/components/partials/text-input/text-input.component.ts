@@ -15,7 +15,11 @@ export class TextInputComponent implements OnInit {
   @Input()
   label!: string;
   @Input()
-  type: 'text' | 'password' | 'email' = 'text' ;
+  type: 'text' | 'password' | 'email'  = 'text'
+  @Input()
+  type1: 'number' = 'number';
+  @Input()
+  type2: 'textArea' = 'textArea';
 
   get formControl(){
     return this.control as FormControl;

@@ -32,6 +32,9 @@ import { AuthInterceptor } from './auth/guards/auth.interceptor';
 import { OrdersPageComponent } from './components/pages/orders-page/orders.component';
 import { AllOrdersPageComponent } from './components/pages/all-orders-page/all-orders-page.component';
 import { ProfilePageComponent } from './components/pages/profile-page/profile-page.component';
+import { AddProductComponent } from './components/partials/add-product/add-product.component';
+import { EditProductComponent } from './components/partials/edit-product/edit-product.component';
+import { DeleteProductComponent } from './components/partials/delete-product/delete-product.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +61,9 @@ import { ProfilePageComponent } from './components/pages/profile-page/profile-pa
     OrdersPageComponent,
     AllOrdersPageComponent,
     ProfilePageComponent,
+    AddProductComponent,
+    EditProductComponent,
+    DeleteProductComponent,
   ],
   imports: [
     BrowserModule,
