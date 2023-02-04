@@ -25,13 +25,13 @@ export class CartService {
     this.toastrService.success(`${food.name} added to cart`,'')
   }
 
-  removeFromCart(foodId:number,foodName:string): void{
+  removeFromCart(foodId:string,foodName:string): void{
     this.cart.items = this.cart.items.filter(item => item.food.id != foodId);
     this.setCartToLocalStorage();
     this.toastrService.success(`${foodName} removed from cart`,'')
   }
 
-  changeQuantity(foodId:number, quantity:number){
+  changeQuantity(foodId:string, quantity:number){
     let cartItem = this.cart.items.find(item => item.food.id === foodId);
     if (!cartItem)
       return;
