@@ -35,6 +35,7 @@ import { ProfilePageComponent } from './components/pages/profile-page/profile-pa
 import { AddProductComponent } from './components/partials/add-product/add-product.component';
 import { EditProductComponent } from './components/partials/edit-product/edit-product.component';
 import { DeleteProductComponent } from './components/partials/delete-product/delete-product.component';
+import { UsersPageComponent } from './components/pages/users-page/users-page.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { DeleteProductComponent } from './components/partials/delete-product/del
     AddProductComponent,
     EditProductComponent,
     DeleteProductComponent,
+    UsersPageComponent,
   ],
   imports: [
     BrowserModule,

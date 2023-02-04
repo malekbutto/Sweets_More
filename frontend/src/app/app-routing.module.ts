@@ -10,6 +10,7 @@ import { LoginPageComponent } from './components/pages/login-page/login-page.com
 import { OrdersPageComponent } from './components/pages/orders-page/orders.component';
 import { ProfilePageComponent } from './components/pages/profile-page/profile-page.component';
 import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
+import { UsersPageComponent } from './components/pages/users-page/users-page.component';
 import { AddProductComponent } from './components/partials/add-product/add-product.component';
 import { DeleteProductComponent } from './components/partials/delete-product/delete-product.component';
 import { EditProductComponent } from './components/partials/edit-product/edit-product.component';
@@ -23,12 +24,13 @@ const routes: Routes = [
   {path:'login', component:LoginPageComponent},
   {path:'register', component:RegisterPageComponent},
   {path:'checkout', component:CheckoutPageComponent, canActivate:[AuthGuard]},
-  {path:'orders', component:OrdersPageComponent},
+  {path:'myOrders', component:OrdersPageComponent},
   {path:'allOrders', component:AllOrdersPageComponent},
   {path:'profile', component:ProfilePageComponent},
   {path:'addProduct', component:AddProductComponent},
   {path:'editProduct', component:EditProductComponent},
   {path:'deleteProduct', component:DeleteProductComponent},
+  {path:'users', component:UsersPageComponent},
 ];
 
 @NgModule({
