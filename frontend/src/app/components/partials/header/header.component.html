@@ -12,51 +12,50 @@
         </li>
         <li class="menu-settings" *ngIf="user.isAdmin">
           <span class="material-symbols-outlined">
-          <a routerLink="/settings">Settings</a>
-        </span>
+            <a>Settings</a>
+          </span>
           <div class="menu">
-            <a routerLink="/users"><span class="material-symbols-outlined">
-              manage_accounts
-              </span>Users</a>
-            <a routerLink="/allOrders"><span class="material-symbols-outlined">
-              list_alt
-              </span>All Orders</a>
+            <a routerLink="/users"
+              ><span class="material-symbols-outlined"> manage_accounts </span>   Users
+            </a>
+            <a routerLink="/allOrders">
+              <span class="material-symbols-outlined"> list_alt </span>   All Orders
+            </a>
             <a>Manage Products
-            <div class="manage-product">
-              <a routerLink="/addProduct"><span class="material-symbols-outlined">
-                library_add
-                </span>Add Product</a>
-              <a routerLink="/editProduct"><span class="material-symbols-outlined">
-                edit
-                </span>Edit Product</a>
-              <a routerLink="/deleteProduct"><span class="material-symbols-outlined">
-                delete_forever
-                </span>Delete Product</a>
-            </div>
-          </a>
+              <div class="manage-product">
+                <a routerLink="/addProduct">
+                  <span class="material-symbols-outlined"> library_add </span>   Add Product
+                </a>
+                <a routerLink="/editProduct">
+                  <span class="material-symbols-outlined"> edit </span>   Edit Product
+                </a>
+                <a routerLink="/deleteProduct">
+                  <span class="material-symbols-outlined"> delete_forever </span>   Delete Product
+                </a>
+              </div>
+            </a>
           </div>
         </li>
         <li *ngIf="isAuth" class="menu-container">
-          <a routerLink="/dashboard">{{ user.name }}</a>
+          <a>{{ user.name }}</a>
           <div class="menu">
-            <a routerLink="/profile"><span class="material-symbols-outlined">
-              person
-              </span>Profile
+            <a routerLink="/profile">
+              <span class="material-symbols-outlined"> person </span>   Profile
             </a>
-            <a routerLink="/myOrders"><span class="material-symbols-outlined">
-              dvr
-              </span>My Orders</a>
-            <a (click)="logout()"><span class="material-symbols-outlined">
-              logout
-              </span>Logout</a>
+            <a routerLink="/myOrders">
+              <span class="material-symbols-outlined"> dvr </span>   My Orders
+            </a>
+            <a (click)="logout()">
+              <span class="material-symbols-outlined"> logout </span>   Logout
+            </a>
           </div>
         </li>
         <li *ngIf="isAuth">
           <a routerLink="/cart-page">
-            <!-- <span class="cart">
+            <span class="cart">
               <span class="material-icons"> shopping_cart </span>
-            </span> -->
-            Cart <span *ngIf="cartQuantity">{{ cartQuantity }}</span>
+            </span>
+            <span *ngIf="cartQuantity">{{ cartQuantity }}</span>
           </a>
         </li>
       </ul>

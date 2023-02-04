@@ -1,1 +1,55 @@
-<p>all-orders-page works!</p>
+<h3>All Orders</h3>
+
+<table>
+  <tr>
+    <td colspan="2">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong> Name </strong>
+    </td>
+    <td>
+      <strong> Address </strong>
+    </td>
+    <td>
+      <strong> Address For Shipping </strong>
+    </td>
+    <td>
+      <strong> Items </strong>
+    </td>
+    <td>
+      <strong> Total Price </strong>
+    </td>
+    <td>
+      <strong> Created  At </strong>
+    </td>
+  </tr>
+  <tr *ngFor="let order of orders">
+    <td>
+      {{ order.name }}
+    </td>
+    <td>
+      {{ order.address }}
+    </td>
+    <td>
+      {{ order.addressLatLng }}
+    </td>
+    <td>
+      {{ order.items }}
+    </td>
+    <td>
+      {{ order.totalPrice }} NIS
+    </td>
+    <td>
+      {{ order.createdAt }}
+    </td>
+    <td>
+      <span class="material-symbols-outlined"> priority </span>
+      <span class="material-symbols-outlined"> more_vert </span>
+      <span class="material-symbols-outlined"> edit_square </span>
+      <span class="material-symbols-outlined"> more_vert </span>
+      <span class="material-symbols-outlined"> delete </span>
+    </td>
+  </tr>
+</table>

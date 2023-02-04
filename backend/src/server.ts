@@ -23,7 +23,7 @@ app.use(
 
 app.use("/api", foodRouter);
 app.use("/api", userRouter);
-app.use("/api/orders", orderRouter);
+app.use("/api", orderRouter);
 
 
 
