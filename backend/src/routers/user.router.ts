@@ -8,9 +8,7 @@ import bcrypt from 'bcryptjs';
 
 const router = Router();
 
-router.get(
-  "/users/seed",
-  asyncHandler(async (req, res) => {
+router.get("/users/seed", asyncHandler(async (req, res) => {
     const usersCount = await UserModel.countDocuments();
     if (usersCount > 0) {
       res.send("Seed is already done!");
@@ -20,6 +18,13 @@ router.get(
     res.send("Seed Is Done");
   })
 );
+
+router.get("/users", asyncHandler(
+  async (req, res) => {
+    const users = await UserModel.find();
+    res.send(users);
+  }
+))
 
 router.post("/login", asyncHandler(
   async (req, res) => {
@@ -51,7 +56,6 @@ router.post("/register", asyncHandler(async (req, res) => {
       id:'',
       name,
       email: email.toLowerCase(),
-      // userName,
       password: encryptedPassword,
       // phone,
       address,

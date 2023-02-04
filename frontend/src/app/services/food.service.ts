@@ -4,8 +4,9 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, tap } from 'rxjs';
 import { foods, sample_tags } from 'src/data';
-import { ADD_FOOD, FOODS_BY_ID_URL, FOODS_BY_SEARCH_URL, FOODS_BY_TAG_URL, FOODS_TAGS_URL, FOODS_URL } from '../shared/constants/urls';
+import { ADD_FOOD, DELETE_FOOD, EDIT_FOOD, FOODS_BY_ID_URL, FOODS_BY_SEARCH_URL, FOODS_BY_TAG_URL, FOODS_TAGS_URL, FOODS_URL } from '../shared/constants/urls';
 import { IAddProduct } from '../shared/interfaces/IAddProduct';
+import { IEditProduct } from '../shared/interfaces/IEditProduct';
 import { Food } from '../shared/models/Food';
 import { Tag } from '../shared/models/Tag';
 
@@ -47,6 +48,34 @@ export class FoodService {
         },
         error: (errorResponse) => {
           this.toastrService.error(errorResponse.error, 'Adding New Product Failed!');
+        }
+      })
+    )
+  }
+
+  editProduct(editProduct:IEditProduct): Observable<Food>{
+    return this.http.post<Food>(EDIT_FOOD, editProduct).pipe(
+      tap({
+        next: (product) => {
+          this.toastrService.success(`${product.name} Edited Successfully`,
+          'Edit Product')
+        },
+        error: (errorResponse) => {
+          this.toastrService.error(errorResponse.error, 'Editing Product Failed!');
+        }
+      })
+    )
+  }
+
+  deleteProduct(deleteProduct:string): Observable<Food>{
+    return this.http.post<Food>(DELETE_FOOD, deleteProduct).pipe(
+      tap({
+        next: (product) => {
+          this.toastrService.success(`${product.name} deleted Successfully`,
+          'Edit Product')
+        },
+        error: (errorResponse) => {
+          this.toastrService.error(errorResponse.error, 'Deleting Product Failed!');
         }
       })
     )

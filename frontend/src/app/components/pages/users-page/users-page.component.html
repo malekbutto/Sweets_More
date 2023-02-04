@@ -1,1 +1,45 @@
-<p>users-page works!</p>
+<table>
+  <tr>
+    <td colspan="5">
+      <h3>Users List:</h3>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+      <strong>
+      Name
+    </strong>
+    </td>
+    <td>
+    <strong>
+      Email
+    </strong>
+    </td>
+    <td>
+    <strong>
+      Address
+    </strong>
+    </td>
+    <td>
+    <strong>
+      Admin
+    </strong>
+    </td>
+  </tr>
+  <tr *ngFor="let user of users">
+    <td>
+      {{user.name}}
+    </td>
+    <td>
+      {{user.email}}
+    </td>
+    <td>
+      {{user.address}}
+    </td>
+    <td>
+      {{user.isAdmin}}
+    </td>
+  </tr>
+</table>

@@ -8,7 +8,7 @@ export const ADD_FOOD = FOODS_URL + '/addProduct';
 export const EDIT_FOOD = FOODS_URL + '/editProduct';
 export const DELETE_FOOD = FOODS_URL + '/deleteProduct';
 
-
+export const USERS_URL = BASE_URL + '/api/users';
 export const USER_LOGIN_URL = BASE_URL + '/api/users/login';
 export const USER_REGISTER_URL = BASE_URL + '/api/users/register';
 export const USER_UPDATE_URL = BASE_URL + '/api/users/update';

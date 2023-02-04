@@ -488,7 +488,6 @@ export const sample_users: any[] = [
   {
     name: "John Doe",
     email: "john@gmail.com",
-    // userName: "john1",
     password: "12345",
     // phone: "052332451",
     address: "Toronto On",
@@ -497,7 +496,6 @@ export const sample_users: any[] = [
   {
     name: "Jane Doe",
     email: "jane@gmail.com",
-    // userName: "jane1",
     password: "12345",
     // phone: "0525111222",
     address: "Shanghai",

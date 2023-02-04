@@ -1,0 +1,15 @@
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-top: 3rem;
+  border-bottom: 1px solid #e72929;
+  /* background-image: url("/../assets/Images/Logo/Logo-LoginPage.JPG");
+  background-size: 50.5rem ;
+  background-size: center; */
+}
+
+.details{
+  width: 25rem;
+}

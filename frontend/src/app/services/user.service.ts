@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { USER_LOGIN_URL, USER_REGISTER_URL, USER_UPDATE_URL } from '../shared/constants/urls';
+import { USERS_URL, USER_LOGIN_URL, USER_REGISTER_URL, USER_UPDATE_URL } from '../shared/constants/urls';
 import { IUserLogin } from '../shared/interfaces/IUserLogin';
 import { IUserRegister } from '../shared/interfaces/IUserRegister';
 import { User } from '../shared/models/Users';
@@ -22,6 +22,10 @@ export class UserService {
 
   public get currentUser():User{
     return this.userSubject.value;
+  }
+
+  getAllUsers(): Observable<User[]>{
+    return this.http.get<User[]>(USERS_URL);
   }
 
   login(userLogin:IUserLogin):Observable<User>{

@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
       else if (params.tag)
         foodsObservable = this.foodService.getFoodByTag(params.tag);
       else
-        foodsObservable = foodService.getAll();
+        foodsObservable = this.foodService.getAll();
 
         foodsObservable.subscribe((serverFoods) => {
           this.foods = serverFoods;

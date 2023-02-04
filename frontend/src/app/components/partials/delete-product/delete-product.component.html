@@ -1,1 +1,47 @@
-<p>delete-product works!</p>
+<div class="container">
+  <div class="details">
+    <app-title title="Delete Product"></app-title>
+    <form [formGroup]="deleteProduct" (ngSubmit)="submit()">
+      <text-input
+        [control]="fc.tags"
+        [showErrorsWhen]="isSubmitted"
+        label="Category"
+        type="text"
+      >
+      </text-input>
+      <select class="select"
+        fullWidth
+        size="3"
+        font-size="30px"
+      >
+        <Option value="sweets">Sweets</Option>
+        <Option value="pastries">Pastries</Option>
+        <Option value="ourCuisine">Our Cuisine</Option>
+      </select>
+
+      <text-input
+        [control]="fc.name"
+        [showErrorsWhen]="isSubmitted"
+        label="Product Name"
+      >
+      </text-input>
+
+      <!-- <Select
+        type="text"
+        id="category"
+        name="category"
+        required
+        fullWidth
+        size="3"
+        font-size="30px"
+      >
+        <Option value="sweets">Sweets</Option>
+        <Option value="pastries">Pastries</Option>
+        <Option value="ourCuisine">Our Cuisine</Option>
+      </Select> -->
+      <!-- </text-input> -->
+
+      <default-button text="Delete Product"></default-button>
+    </form>
+  </div>
+</div>
