@@ -1,45 +1,50 @@
 <table>
   <tr>
-    <td colspan="5">
-      <h3>Users List:</h3>
+    <td colspan="2">
+      <h3>Users List</h3>
     </td>
   </tr>
   <tr>
     <td>
+      <strong> Name </strong>
     </td>
     <td>
-      <strong>
-      Name
-    </strong>
+      <strong> Email </strong>
     </td>
     <td>
-    <strong>
-      Email
-    </strong>
+      <strong> Address </strong>
     </td>
     <td>
-    <strong>
-      Address
-    </strong>
+      <strong> Admin </strong>
     </td>
     <td>
-    <strong>
-      Admin
-    </strong>
+      <strong> Manage </strong>
     </td>
   </tr>
   <tr *ngFor="let user of users">
     <td>
-      {{user.name}}
+      {{ user.name }}
     </td>
     <td>
-      {{user.email}}
+      {{ user.email }}
     </td>
     <td>
-      {{user.address}}
+      {{ user.address }}
     </td>
     <td>
-      {{user.isAdmin}}
+      <!-- <span class="material-symbols-outlined"> check_box </span> -->
+      <!-- <span class="material-symbols-outlined"> cancel </span> -->
+      {{user.isAdmin ?
+        <span class='material-symbols-outlined'> check_box </span>:
+        <span class='material-symbols-outlined'> cancel </span>
+      }}
+    </td>
+    <td>
+      <span class="material-symbols-outlined"> priority </span>
+      <span class="material-symbols-outlined"> more_vert </span>
+      <span class="material-symbols-outlined"> edit_square </span>
+      <span class="material-symbols-outlined"> more_vert </span>
+      <span class="material-symbols-outlined"> delete </span>
     </td>
   </tr>
 </table>

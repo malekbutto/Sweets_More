@@ -9,5 +9,5 @@ export interface IOrder{
   address:string;
   addressLatLng?:LatLng;
   createdAt:string;
-  status:string;
+  // status:string;
 }

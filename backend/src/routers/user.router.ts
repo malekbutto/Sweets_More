@@ -8,14 +8,14 @@ import bcrypt from 'bcryptjs';
 
 const router = Router();
 
-router.get("/users/seed", asyncHandler(async (req, res) => {
-    const usersCount = await UserModel.countDocuments();
-    if (usersCount > 0) {
-      res.send("Seed is already done!");
-      return;
-    }
-    await UserModel.create(sample_users);
-    res.send("Seed Is Done");
+router.get("/users/users/seed", asyncHandler(async (req, res) => {
+  const usersCount = await UserModel.countDocuments();
+  if (usersCount > 0) {
+    res.send("Seed is already done!");
+    return;
+  }
+  await UserModel.create(sample_users);
+  res.send("Seed Is Done");
   })
 );
 
@@ -26,7 +26,7 @@ router.get("/users", asyncHandler(
   }
 ))
 
-router.post("/login", asyncHandler(
+router.post("/users/login", asyncHandler(
   async (req, res) => {
     const {email, password} = req.body;
     const user = await UserModel.findOne({email});
@@ -41,7 +41,7 @@ router.post("/login", asyncHandler(
   }
 ))
 
-router.post("/register", asyncHandler(async (req, res) => {
+router.post("/users/register", asyncHandler(async (req, res) => {
     // const { name, email, userName, password, phone, address } = req.body;
     const { name, email, password, address } = req.body;
     const user = await UserModel.findOne({email});
@@ -49,7 +49,6 @@ router.post("/register", asyncHandler(async (req, res) => {
       res.status(HTTP_BAD_REQUEST).send("User is already exist, please login!");
       return;
     }
-
     const encryptedPassword = await bcrypt.hash(password, 10);
 
     const newUser:User = {
@@ -61,7 +60,6 @@ router.post("/register", asyncHandler(async (req, res) => {
       address,
       isAdmin: false
     }
-
     const dbUser = await UserModel.create(newUser);
     res.send(generateTokenResponse(dbUser));
 

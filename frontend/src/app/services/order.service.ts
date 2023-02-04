@@ -18,12 +18,16 @@ export class OrderService {
     this.orderObservable = this.orderSubject.asObservable();
   }
 
-  // create(order:Order){
-  //   return this.http.post<Order>(ORDER_CREATE_URL, order);
-  // }
+  getAllOrders(): Observable<Order[]>{
+    return this.http.get<Order[]>(ORDERS_URL);
+  }
+
+//   create(order:Order){
+//     return this.http.post<Order>(ORDER_CREATE_URL, order);
+//  }
 
   saveOrderToMongoDB(saveOrder:IOrder): Observable<Order>{
-    return this.http.post<Order>(ORDERS_URL, saveOrder).pipe(
+    return this.http.post<Order>(ORDER_CREATE_URL, saveOrder).pipe(
       tap({
         next: (order) => {
           this.setOrderToLocalStorage(order);

@@ -66,7 +66,7 @@ export class CheckoutPageComponent implements OnInit{
       address:this.order.address,
       addressLatLng:this.order.addressLatLng,
       createdAt:this.order.createdAt,
-      status:this.order.status,
+      // status:this.order.status,
     };
 
     this.order.name = this.fc.name.value;

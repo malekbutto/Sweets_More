@@ -9,9 +9,9 @@ export const EDIT_FOOD = FOODS_URL + '/editProduct';
 export const DELETE_FOOD = FOODS_URL + '/deleteProduct';
 
 export const USERS_URL = BASE_URL + '/api/users';
-export const USER_LOGIN_URL = BASE_URL + '/api/users/login';
-export const USER_REGISTER_URL = BASE_URL + '/api/users/register';
-export const USER_UPDATE_URL = BASE_URL + '/api/users/update';
+export const USER_LOGIN_URL = USERS_URL + '/login';
+export const USER_REGISTER_URL = USERS_URL + '/register';
+export const USER_UPDATE_URL = USERS_URL + '/update';
 
 export const ORDERS_URL = BASE_URL + '/api/orders';
 export const ORDER_CREATE_URL = ORDERS_URL + '/create';

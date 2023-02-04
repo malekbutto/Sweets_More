@@ -43,6 +43,8 @@ ul{
 ul a{
   padding: 1.3rem;
   display: inline-block;
+  direction: ltr;
+
 }
 
 a span{
@@ -66,6 +68,7 @@ a span{
   z-index: 1;
   background: whitesmoke;
   display: none;
+  direction: ltr;
 }
 
 .menu{
@@ -85,9 +88,12 @@ a span{
 
 .menu >*:hover .manage-product{
   display: inline;
+  direction: ltr;
 }
 
 .menu a{
   width: 100%;
+  width: 10rem;
+  padding: 0.9rem;
   min-width: 8rem;
 }
