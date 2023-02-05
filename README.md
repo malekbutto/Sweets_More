@@ -40,12 +40,16 @@ Open the project folder in Visual Studio Code.
 Right click of "backend" folder -> "open in integrated terminal"
 
 run the following code
+'
   npm start
+'
 
 Right click of "frontend" folder -> "open in integrated terminal"
 
 run the following code
+'
   npm start
+'
   
 ## Author - Malek Butto
 
