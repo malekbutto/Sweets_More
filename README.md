@@ -50,6 +50,9 @@ run the following code
 '
   npm start
 '
+
+open browser and paste this URL:
+http://localhost:4200/
   
 ## Author - Malek Butto
 
