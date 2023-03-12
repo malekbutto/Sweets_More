@@ -13,3 +13,12 @@
 .details{
   width: 25rem;
 }
+
+.Category{
+  display: block;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-top: 3rem;
+  font-size: 18px;
+}

@@ -64,6 +64,7 @@ export class UserService {
     return this.http.post<User>(USER_UPDATE_URL, userUpdate).pipe(
       tap({
         next: (user) => {
+          alert("updated");
           this.userSubject.next(user);
           this.toastrService.success(`Details Updated Successfully, ${user.name}`,
           'Update Successful')

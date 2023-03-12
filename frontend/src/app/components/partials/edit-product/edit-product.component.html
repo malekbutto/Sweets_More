@@ -2,44 +2,40 @@
   <div class="details">
     <app-title title="Edit Product"></app-title>
     <form [formGroup]="editProduct" (ngSubmit)="submit()">
-      <text-input
-        [control]="fc.name"
-        [showErrorsWhen]="isSubmitted"
-        label="Product Name"
-      >
-      </text-input>
-
-      <text-input
+      <!-- <text-input
         [control]="fc.tags"
         [showErrorsWhen]="isSubmitted"
         label="Category"
         type="text"
       >
-      </text-input>
-      <select class="select"
-        fullWidth
-        size="3"
-        font-size="30px"
-      >
-        <Option value="sweets">Sweets</Option>
-        <Option value="pastries">Pastries</Option>
-        <Option value="ourCuisine">Our Cuisine</Option>
-      </select>
+      </text-input> -->
+      <div class="Category">
+        <label for="Category">Category</label>
+        <div *ngFor="let item of category">
+          <label for="item"></label>
+          <input type="radio" id="item" name="item" value="item" onclick="getFoodByTag(item)"/>{{ item }}
+        </div>
+      </div>
+      <br />
 
-      <!-- <Select
-        type="text"
-        id="category"
-        name="category"
-        required
-        fullWidth
-        size="3"
-        font-size="30px"
+      <div class="CategoryList">
+        <label for="CategoryList">Category List</label>
+        <div *ngFor="let food of foods">
+          {{food}}
+            
+        </div>
+      </div>
+      <br />
+
+      <text-input
+        [control]="fc.name"
+        [showErrorsWhen]="isSubmitted"
+        label="Product Name"
       >
-        <Option value="sweets">Sweets</Option>
-        <Option value="pastries">Pastries</Option>
-        <Option value="ourCuisine">Our Cuisine</Option>
-      </Select> -->
-      <!-- </text-input> -->
+      <div *ngFor="let food of foods">
+        {{food.name}}
+      </div>
+      </text-input>
 
       <!-- <textarea
       placeholder="Description   (max 200 Chars)"
@@ -93,8 +89,8 @@
         label="Picture"
         type="text"
       >
-    </text-input>
-    <input type="file" id="img" name="img" accept="image/*" required>
+      </text-input>
+      <input type="file" id="img" name="img" accept="image/*" required />
 
       <default-button text="Edit Product"></default-button>
     </form>

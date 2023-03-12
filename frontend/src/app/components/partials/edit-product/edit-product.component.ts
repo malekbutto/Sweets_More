@@ -1,8 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { FoodService } from 'src/app/services/food.service';
+import { FOODS_BY_TAG_URL } from 'src/app/shared/constants/urls';
 import { IEditProduct } from 'src/app/shared/interfaces/IEditProduct';
+import { Food } from 'src/app/shared/models/Food';
 
 @Component({
   selector: 'edit-product',
@@ -15,12 +19,28 @@ export class EditProductComponent implements OnInit{
   isSubmitted = false;
   returnUrl = '';
 
+  category = ['Sweets', 'Pastries', 'Our Cuisine'];
+  foods: Food[] = [];
+
   constructor(
+    private http:HttpClient,
     private formBuilder: FormBuilder,
     private foodService: FoodService,
     private activatedRoute: ActivatedRoute,
     private router: Router
-  ) {}
+  ) {
+    let foodsObservable: Observable<Food[]>;
+    // activatedRoute.params.subscribe((params) => {
+    //   if (params.tag)
+    //     foodsObservable = this.foodService.getFoodByTag(params.tag);
+
+    //     foodsObservable.subscribe((serverFoods) => {
+    //       this.foods = serverFoods;
+    //     })
+    //   });
+
+    // this.foods = this.getFoodByTag(tag:String);
+  }
 
   ngOnInit(): void {
     this.editProduct = this.formBuilder.group({
@@ -40,6 +60,10 @@ export class EditProductComponent implements OnInit{
 
 get fc() {
   return this.editProduct.controls;
+}
+
+getFoodByTag(tag: string): Observable<Food[]>{
+  return this.http.get<Food[]>(FOODS_BY_TAG_URL + tag);
 }
 
 submit() {

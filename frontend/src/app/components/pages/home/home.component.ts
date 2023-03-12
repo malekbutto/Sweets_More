@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit {
           this.foods = serverFoods;
         })
       });
-
   }
 
   ngOnInit(): void {}
