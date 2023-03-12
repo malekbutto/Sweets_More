@@ -65,7 +65,7 @@ import { UsersPageComponent } from './components/pages/users-page/users-page.com
     AddProductComponent,
     EditProductComponent,
     DeleteProductComponent,
-    UsersPageComponent,
+    UsersPageComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +81,6 @@ import { UsersPageComponent } from './components/pages/users-page/users-page.com
       closeButton: true,
     }),
     FontAwesomeModule,
-    FormsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
