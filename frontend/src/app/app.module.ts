@@ -36,6 +36,7 @@ import { AddProductComponent } from './components/partials/add-product/add-produ
 import { EditProductComponent } from './components/partials/edit-product/edit-product.component';
 import { DeleteProductComponent } from './components/partials/delete-product/delete-product.component';
 import { UsersPageComponent } from './components/pages/users-page/users-page.component';
+// import { MatConfirmDialogComponent } from './components/partials/mat-confirm-dialog/mat-confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { UsersPageComponent } from './components/pages/users-page/users-page.com
     AddProductComponent,
     EditProductComponent,
     DeleteProductComponent,
-    UsersPageComponent
+    UsersPageComponent,
+    // MatConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -86,6 +88,7 @@ import { UsersPageComponent } from './components/pages/users-page/users-page.com
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  // entryComponents:[MatConfirmDialogComponent]
 })
 export class AppModule { }

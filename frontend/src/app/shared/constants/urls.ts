@@ -12,6 +12,7 @@ export const USERS_URL = BASE_URL + '/api/users';
 export const USER_LOGIN_URL = USERS_URL + '/login';
 export const USER_REGISTER_URL = USERS_URL + '/register';
 export const USER_UPDATE_URL = USERS_URL + '/update';
+export const USER_DELETE_URL = USERS_URL + '/delete';
 
 export const ORDERS_URL = BASE_URL + '/api/orders';
 export const ORDER_CREATE_URL = ORDERS_URL + '/create';
