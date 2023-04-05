@@ -12,6 +12,11 @@
     </td>
     <td>
       <strong> Admin </strong>
+      <span class="role" *ngIf="!disableValue">
+        <button class="changeRole" (click)="changeRole()">
+          Change Role
+        </button>
+      </span>
     </td>
     <td>
       <strong> Manage </strong>
@@ -28,18 +33,18 @@
       <input type="text" value="{{ user.address }}" name="text" width="auto" [disabled]="disableValue">
     </td>
     <td *ngIf="user.isAdmin">
-      <span *ngIf="disableValue">
+      <span *ngIf="disableRole">
         <span class='material-symbols-outlined' style="color: green;"> check_box </span>
       </span>
-      <span *ngIf="!disableValue">
-        <span class='material-symbols-outlined' title="Make Simple User" style="color: red; cursor: pointer"> cancel </span>
+      <span *ngIf="!disableRole">
+        <span class='material-symbols-outlined' title="Make Simple User" style="color: red; cursor: pointer" (click)="openDialog()"> cancel </span>
       </span>
     </td>
     <td *ngIf="!user.isAdmin">
-      <span *ngIf="!disableValue">
+      <span *ngIf="!disableRole">
         <span class='material-symbols-outlined' title="Make Admin" style="color: green; cursor: pointer" (click)="openDialog()"> check_box </span>
       </span>
-      <span *ngIf="disableValue">
+      <span *ngIf="disableRole">
         <span class='material-symbols-outlined' style="color: red;"> cancel </span>
       </span>
     </td>

@@ -14,6 +14,8 @@ import { User } from 'src/app/shared/models/Users';
 })
 export class UsersPageComponent implements OnInit {
   disableValue = true;
+  disableRole = true;
+  admin = true;
   users: User[] = [];
   constructor(
     private userService: UserService,
@@ -31,20 +33,43 @@ export class UsersPageComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
 
   openDialog():void {
-
-    this.toastrService.success(`Details updated successfully`,'')
+    this.toastrService.success(`Role changed successfully`,'')
+    this.users.forEach(user => {
+      if (user.isAdmin)
+      {
+        user.isAdmin = false;
+        this.admin = false;
+      }
+      else
+      {
+        user.isAdmin = true;
+        this.admin = true;
+      }
+    });
+    alert(this.admin);
   }
 
   updateUser():void {
     this.disableValue = true;
     this.toastrService.success(`Details updated successfully`,'')
+    let {name, email, address, isAdmin} = this.userService.currentUser;
+    // console.log(name.value);
+    // console.log(email);
+    // console.log(address);
+    // console.log(isAdmin);
   }
 
   enableEdit():void {
     this.disableValue = false;
+  }
+
+  changeRole():void{
+    this.disableRole = false;
   }
 
   deleteUser(user:User):void {
