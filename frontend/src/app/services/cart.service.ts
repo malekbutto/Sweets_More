@@ -36,6 +36,8 @@ export class CartService {
     if (!cartItem)
       return;
 
+    //Should be like this
+    //cartItem.food.quantity += quantity;
     cartItem.quantity += quantity;
     cartItem.price = cartItem.quantity * cartItem.food.price;
     this.setCartToLocalStorage();

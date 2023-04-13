@@ -5,7 +5,7 @@ import { FoodModel } from "../models/food.module";
 
 const router = Router();
 
-router.get("/foods/seed", asyncHandler(async (req, res) => {
+router.get("/seed", asyncHandler(async (req, res) => {
     const foodsCount = await FoodModel.countDocuments();
     if (foodsCount > 0){
       res.send("Seed is already done!");
@@ -16,10 +16,10 @@ router.get("/foods/seed", asyncHandler(async (req, res) => {
   })
 );
 
-router.get("/foods", asyncHandler(
+router.get("/", asyncHandler(
   async (req, res) => {
-    const foods = await FoodModel.find();
-    res.send(foods);
+    const food = await FoodModel.find();
+    res.send(food);
   }
 ))
 

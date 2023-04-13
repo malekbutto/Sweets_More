@@ -8,7 +8,7 @@ import bcrypt from 'bcryptjs';
 
 const router = Router();
 
-router.get("/users/users/seed", asyncHandler(async (req, res) => {
+router.get("/seed", asyncHandler(async (req, res) => {
   const usersCount = await UserModel.countDocuments();
   if (usersCount > 0) {
     res.send("Seed is already done!");
@@ -19,14 +19,14 @@ router.get("/users/users/seed", asyncHandler(async (req, res) => {
   })
 );
 
-router.get("/users", asyncHandler(
+router.get("/", asyncHandler(
   async (req, res) => {
     const users = await UserModel.find();
     res.send(users);
   }
 ))
 
-router.post("/users/login", asyncHandler(
+router.post("/login", asyncHandler(
   async (req, res) => {
     const {email, password} = req.body;
     const user = await UserModel.findOne({email});
@@ -41,7 +41,7 @@ router.post("/users/login", asyncHandler(
   }
 ))
 
-router.post("/users/register", asyncHandler(async (req, res) => {
+router.post("/register", asyncHandler(async (req, res) => {
     // const { name, email, userName, password, phone, address } = req.body;
     const { name, email, password, address } = req.body;
     const user = await UserModel.findOne({email});
@@ -56,7 +56,6 @@ router.post("/users/register", asyncHandler(async (req, res) => {
       name,
       email: email.toLowerCase(),
       password: encryptedPassword,
-      // phone,
       address,
       isAdmin: false
     }

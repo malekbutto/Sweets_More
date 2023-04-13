@@ -50,7 +50,7 @@ export class UserService {
         next: (user) => {
           this.setUserToLocalStorage(user);
           this.userSubject.next(user);
-          this.toastrService.success(`Welcome to Sweet & More, ${user.name}`,
+          this.toastrService.success(`Welcome to Sweet & More,${user.name}`,
           'Register Successful')
         },
         error: (errorResponse) => {
@@ -76,6 +76,22 @@ export class UserService {
     )
   }
 
+  // deleteUser(userDelete:IUserRegister): void{
+  //   return this.http.delete(USER_DELETE_URL, userDelete).pipe(
+  //     tap({
+  //       next: (user) => {
+  //         alert("updated");
+  //         this.userSubject.next(user);
+  //         this.toastrService.success(`Details Updated Successfully, ${user.name}`,
+  //         'Update Successful')
+  //       },
+  //       error: (errorResponse) => {
+  //         this.toastrService.error(errorResponse.error, 'Update Failed!');
+  //       }
+  //     })
+  //   )
+  // }
+
   logout(){
     this.router.navigateByUrl("/home");
     this.userSubject.next(new User());
@@ -94,5 +110,4 @@ export class UserService {
 
     return new User;
   }
-
 }

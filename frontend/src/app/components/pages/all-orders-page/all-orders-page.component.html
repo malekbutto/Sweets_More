@@ -1,20 +1,16 @@
 <h3>All Orders</h3>
 
 <table>
-  <tr>
-    <td colspan="2">
-    </td>
-  </tr>
-  <tr>
+  <tr colspan="2">
     <td>
       <strong> Name </strong>
     </td>
     <td>
       <strong> Address </strong>
     </td>
-    <td>
+    <!-- <td>
       <strong> Address For Shipping </strong>
-    </td>
+    </td> -->
     <td>
       <strong> Items </strong>
     </td>
@@ -22,7 +18,10 @@
       <strong> Total Price </strong>
     </td>
     <td>
-      <strong> Created  At </strong>
+      <strong> Created At </strong>
+    </td>
+    <td>
+      <strong> Manage </strong>
     </td>
   </tr>
   <tr *ngFor="let order of orders">
@@ -32,15 +31,15 @@
     <td>
       {{ order.address }}
     </td>
+    <!-- <td>
+        "{{ order.addressLatLng }}"
+    </td> -->
     <td>
-      {{ order.addressLatLng }}
+      <p *ngFor="let item of order.items">
+        "{{ item.food.name }}"
+      </p>
     </td>
-    <td>
-      {{ order.items }}
-    </td>
-    <td>
-      {{ order.totalPrice }} NIS
-    </td>
+    <td>{{ order.totalPrice }} NIS</td>
     <td>
       {{ order.createdAt }}
     </td>

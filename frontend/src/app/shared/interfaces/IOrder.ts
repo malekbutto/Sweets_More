@@ -2,7 +2,7 @@ import { LatLng } from "leaflet";
 import { CartItem } from "../models/CartItem";
 
 export interface IOrder{
-  id: string;
+  id: number;
   // items:CartItem;
   totalPrice:number;
   name:string;

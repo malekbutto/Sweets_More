@@ -511,9 +511,7 @@ export const sample_orders: any[] = [
     addressLatLng: {lat: 32.7022557, lng: 35.2837873},
     totalPrice: 132,
     items: [],
-    // status: "NEW",
     user: '63de7f1f8972bbe783da0cc0',
     createdAt: "2023-02-04T14:24:47.127+00:00",
-    // updatedAt: "2023-02-04T14:24:47.127+00:00"
   },
 ];

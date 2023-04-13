@@ -38,12 +38,9 @@ export class CheckoutPageComponent implements OnInit{
       name:[name, Validators.required],
       address:[address, Validators.required]
     });
-
-    // this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl;
-
   }
 
-  get fc (){
+  get fc(){
     return this.checkoutForm.controls;
   }
 
@@ -58,35 +55,16 @@ export class CheckoutPageComponent implements OnInit{
       return;
     }
 
-    const order: IOrder = {
-      id: String(this.order.id),
-      // items:CartService,
-      totalPrice:this.order.totalPrice,
-      name:this.order.name,
-      address:this.order.address,
-      addressLatLng:this.order.addressLatLng,
-      createdAt:this.order.createdAt,
-      // status:this.order.status,
-    };
-
+    this.order.id = crypto.randomUUID();
     this.order.name = this.fc.name.value;
     this.order.address = this.fc.address.value;
+    this.order.createdAt = String(Date.now());
 
-    console.log(this.order);
-
-    this.orderService.saveOrderToMongoDB(order).subscribe({
+    this.orderService.saveOrderToMongoDB(this.order).subscribe({
         next: () => {
-          this.router.navigateByUrl('/');
+          // this.order.items = [];
+
         }
     });
-
-    // this.orderService.create(this.order).subscribe({
-    //   next: () => {
-    //     this.router.navigateByUrl('/payment');
-    //   },
-    //   error: (errorResponse) => {
-    //     this.toastrService.error(errorResponse.error, 'Cart');
-    //   }
-    // })
   }
 }

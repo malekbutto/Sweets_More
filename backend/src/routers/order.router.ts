@@ -9,7 +9,7 @@ import { sample_orders } from "../data";
 const router = Router();
 // router.use(auth);
 
-router.get("/orders/seed", asyncHandler(async (req, res) => {
+router.get("/seed", asyncHandler(async (req, res) => {
   const ordersCount = await OrderModel.countDocuments();
   if (ordersCount > 0){
     res.send("Seed is already done!");
@@ -20,7 +20,7 @@ router.get("/orders/seed", asyncHandler(async (req, res) => {
   })
 );
 
-router.get("/orders", asyncHandler(
+router.get("/", asyncHandler(
   async (req, res) => {
     const orders = await OrderModel.find();
     res.send(orders);
@@ -30,20 +30,19 @@ router.get("/orders", asyncHandler(
 router.post("/create", asyncHandler(async (req: any, res: any) => {
     const requestOrder = req.body;
 
-    if (requestOrder.items.length <= 0) {
-      res.status(HTTP_BAD_REQUEST).send("Cart Is Empty");
-      return;
-    }
+    // if (requestOrder.items.length <= 0) {
+    //   res.status(HTTP_BAD_REQUEST).send("Cart Is Empty");
+    //   return;
+    // }
 
-    await OrderModel.deleteOne({
-        user: req.user.id,
-        status: OrderStatus.NEW
-    });
+    // await OrderModel.deleteOne({
+    //     user: req.user.id,
+    //     status: OrderStatus.NEW
+    // });
     
-    const newOrder = new OrderModel({...requestOrder, user: req.user.id});
+    const newOrder = new OrderModel({...requestOrder});
     await newOrder.save();
     res.send(newOrder);
-
 })
 )
 

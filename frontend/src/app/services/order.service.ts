@@ -5,6 +5,7 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { ORDERS_URL, ORDER_CREATE_URL } from '../shared/constants/urls';
 import { Order } from '../shared/models/Order';
 import { IOrder } from '../shared/interfaces/IOrder';
+import { Router } from '@angular/router';
 
 const ORDER_KEY = 'Order';
 @Injectable({
@@ -14,7 +15,7 @@ export class OrderService {
   private orderSubject = new BehaviorSubject<Order>(this.getOrderFromLocalStorage());
   public orderObservable:Observable<Order>;
 
-  constructor(private http:HttpClient, private toastrService:ToastrService) {
+  constructor(private http:HttpClient, private toastrService:ToastrService, private router: Router) {
     this.orderObservable = this.orderSubject.asObservable();
   }
 
@@ -22,27 +23,32 @@ export class OrderService {
     return this.http.get<Order[]>(ORDERS_URL);
   }
 
-//   create(order:Order){
-//     return this.http.post<Order>(ORDER_CREATE_URL, order);
-//  }
+  // create(order:Order){
+  //   return this.http.post<Order>(ORDER_CREATE_URL, order);
+  //  }
 
-  saveOrderToMongoDB(saveOrder:IOrder): Observable<Order>{
+  saveOrderToMongoDB(saveOrder:Order): Observable<Order>{
     return this.http.post<Order>(ORDER_CREATE_URL, saveOrder).pipe(
       tap({
         next: (order) => {
           this.setOrderToLocalStorage(order);
           this.orderSubject.next(order);
           this.toastrService.success(`Purchase Successful`,
-          'Saved')
+          'Saved');
+          this.router.navigateByUrl('/home');
+          localStorage.removeItem('Order');
+          localStorage.removeItem('Cart');
+          window.location.reload();
         },
         error: (errorResponse) => {
           this.toastrService.error(errorResponse.error, 'Purchase Failed!');
+          console.log(errorResponse.error);
         }
       })
     )
   }
 
-  private setOrderToLocalStorage(order:Order){
+  public setOrderToLocalStorage(order:Order){
     const orderJson = JSON.stringify(order);
     localStorage.setItem(ORDER_KEY, orderJson);
   }

@@ -10,8 +10,7 @@ export default(req: any, res: any, next: any) => {
         req.user = decodedUser;
 
     } catch (error) {
-        res.
-        status(HTTP_UNAUTHORIZED).send();
+        res.status(HTTP_UNAUTHORIZED).send();
     }
     return next();
 }

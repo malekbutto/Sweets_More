@@ -31,10 +31,8 @@ export interface Order {
   name: string;
   address: string;
   addressLatLng: LatLng;
-  // status: OrderStatus;
   user: Types.ObjectId;
   createdAt: Date;
-  // updatedAt: Date;
 }
 
 const orderSchema = new Schema<Order>({
@@ -43,7 +41,7 @@ const orderSchema = new Schema<Order>({
     addressLatLng: { type: LatLngSchema, required: true },
     totalPrice: { type: Number, required: true },
     items: { type: [OrderItemSchema], required: true },
-    user: { type: Schema.Types.ObjectId, required: true },
+    user: { type: Schema.Types.ObjectId, required: false },
   },
   {
     timestamps: true,
