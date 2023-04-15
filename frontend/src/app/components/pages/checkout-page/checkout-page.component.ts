@@ -63,7 +63,7 @@ export class CheckoutPageComponent implements OnInit{
     this.orderService.saveOrderToMongoDB(this.order).subscribe({
         next: () => {
           // this.order.items = [];
-
+          this.router.navigateByUrl('/');
         }
     });
   }

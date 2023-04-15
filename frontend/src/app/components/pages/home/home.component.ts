@@ -31,7 +31,8 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   addToCart(){
     if (localStorage.getItem('User'))

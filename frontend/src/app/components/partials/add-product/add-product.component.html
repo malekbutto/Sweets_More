@@ -1,7 +1,7 @@
 <div class="container">
   <div class="details">
     <app-title title="Add New Product"></app-title>
-    <form [formGroup]="addProduct" (ngSubmit)="submit()">
+    <form [formGroup]="addProductForm" (ngSubmit)="submit()">
       <text-input
         [control]="fc.name"
         [showErrorsWhen]="isSubmitted"
@@ -12,46 +12,20 @@
       <text-input
         [control]="fc.tags"
         [showErrorsWhen]="isSubmitted"
-        label="Category"
-        type="text"
-      >
+        label="Category (Sweets / Pastries / Our Cuisine) "
+        type="select"
+        >
+        <Option value="Sweets">Sweets</Option>
+        <Option value="Pastries">Pastries</Option>
+        <Option value="Our Cuisine">Our Cuisine</Option>
+
       </text-input>
-      <select class="select"
-        fullWidth
-        size="3"
-        font-size="30px"
-      >
-        <Option value="sweets">Sweets</Option>
-        <Option value="pastries">Pastries</Option>
-        <Option value="ourCuisine">Our Cuisine</Option>
-      </select>
 
-      <!-- <Select
-        type="text"
-        id="category"
-        name="category"
-        required
-        fullWidth
-        size="3"
-        font-size="30px"
-      >
-        <Option value="sweets">Sweets</Option>
-        <Option value="pastries">Pastries</Option>
-        <Option value="ourCuisine">Our Cuisine</Option>
-      </Select> -->
-      <!-- </text-input> -->
-
-      <!-- <textarea
-      placeholder="Description   (max 200 Chars)"
-      minLength="1"
-      maxLength="200"
-      name="Description" id="description" cols="50" rows="5">
-      </textarea> -->
       <text-input
         [control]="fc.description"
         [showErrorsWhen]="isSubmitted"
         label="Description"
-        type2="textArea"
+        type="textArea"
       >
       </text-input>
 
@@ -66,7 +40,7 @@
       <text-input
         [control]="fc.piece"
         [showErrorsWhen]="isSubmitted"
-        label="Sell By:"
+        label="Sell By: (Piece / Packet / KG / Cake)"
         type="text"
       >
       </text-input>

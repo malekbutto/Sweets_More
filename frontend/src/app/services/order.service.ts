@@ -23,26 +23,20 @@ export class OrderService {
     return this.http.get<Order[]>(ORDERS_URL);
   }
 
-  // create(order:Order){
-  //   return this.http.post<Order>(ORDER_CREATE_URL, order);
-  //  }
-
   saveOrderToMongoDB(saveOrder:Order): Observable<Order>{
     return this.http.post<Order>(ORDER_CREATE_URL, saveOrder).pipe(
       tap({
         next: (order) => {
           this.setOrderToLocalStorage(order);
           this.orderSubject.next(order);
-          this.toastrService.success(`Purchase Successful`,
+          this.toastrService.success(`Order placed successfully`,
           'Saved');
-          this.router.navigateByUrl('/home');
           localStorage.removeItem('Order');
           localStorage.removeItem('Cart');
           window.location.reload();
         },
         error: (errorResponse) => {
-          this.toastrService.error(errorResponse.error, 'Purchase Failed!');
-          console.log(errorResponse.error);
+          this.toastrService.error(errorResponse.error, 'Purchase failed!');
         }
       })
     )

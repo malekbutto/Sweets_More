@@ -3,15 +3,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FoodService } from 'src/app/services/food.service';
 import { IAddProduct } from 'src/app/shared/interfaces/IAddProduct';
+import { Food } from 'src/app/shared/models/Food';
 
 @Component({
   selector: 'add-product',
   templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.css']
+  styleUrls: ['./add-product.component.css'],
 })
 export class AddProductComponent implements OnInit {
-
-  addProduct!: FormGroup;
+  product: Food = new Food();
+  addProductForm!: FormGroup;
   isSubmitted = false;
   returnUrl = '';
 
@@ -23,43 +24,40 @@ export class AddProductComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.addProduct = this.formBuilder.group({
+    this.addProductForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(5)]],
-      price: ['', [Validators.required, Validators.minLength(0), Validators.maxLength(3)]],
+      price: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(3)]],
       tags: ['', [Validators.required]],
-      description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(500)]],
+      description: ['',[Validators.required, Validators.minLength(10), Validators.maxLength(500)]],
       piece: ['', [Validators.required]],
       imageUrl: ['', [Validators.required]],
-    }
-  );
+    });
 
-  this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl;
-}
+    this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl;
+  }
 
-get fc() {
-  return this.addProduct.controls;
-}
+  get fc() {
+    return this.addProductForm.controls;
+  }
 
-submit() {
-  this.isSubmitted = true;
-  if (this.addProduct.invalid)
-    return;
+  submit() {
+    this.isSubmitted = true;
+    if (this.addProductForm.invalid) return;
 
-  const fv = this.addProduct.value;
-  const product: IAddProduct = {
-    name: fv.name,
-    price: fv.price,
-    tags: fv.category,
-    description: fv.description,
-    favorite: fv.favorite,
-    stars: fv.stars,
-    piece: fv.piece,
-    imageUrl: fv.imageUrl,
-  };
+    this.product.id = crypto.randomUUID();
+    this.product.name = this.fc.name.value,
+    this.product.price = parseInt(this.fc.price.value),
+    this.product.tags = this.fc.tags.value,
+    this.product.description = this.fc.description.value,
+    this.product.piece = this.fc.piece.value,
+    this.product.imageUrl = this.fc.imageUrl.value;
 
-  this.foodService.addProduct(product).subscribe((_) => {
-    this.router.navigateByUrl(this.returnUrl);
-  });
-}
+    console.log(this.product);
 
+    this.foodService.addProduct(this.product).subscribe({
+      next: () => {
+        // this.router.navigateByUrl(this.returnUrl);
+      }
+    });
+  }
 }

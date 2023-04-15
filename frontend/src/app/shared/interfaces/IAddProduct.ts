@@ -3,8 +3,6 @@ export interface IAddProduct{
   price:number;
   tags:string;
   description:string;
-  favorite:boolean;
-  stars:number;
   piece:string;
   imageUrl:string;
 }

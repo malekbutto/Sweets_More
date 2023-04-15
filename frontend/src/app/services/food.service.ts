@@ -39,29 +39,32 @@ export class FoodService {
     this.http.get<Food[]>(FOODS_BY_TAG_URL + tag);
   }
 
-  addProduct(addProduct:IAddProduct): Observable<Food>{
+  addProduct(addProduct:Food): Observable<Food>{
     return this.http.post<Food>(ADD_FOOD, addProduct).pipe(
       tap({
         next: (product) => {
-          this.toastrService.success(`${product.name} Added Successfully`,
-          'New Product')
+          this.toastrService.success(`${product.name} added successfully`,
+          'New Product');
+          this.router.navigateByUrl('/');
         },
         error: (errorResponse) => {
-          this.toastrService.error(errorResponse.error, 'Adding New Product Failed!');
+          this.toastrService.error(errorResponse.error, 'Adding new product failed!');
+          console.log(errorResponse.error);
+
         }
       })
     )
   }
 
   editProduct(editProduct:IEditProduct): Observable<Food>{
-    return this.http.post<Food>(EDIT_FOOD, editProduct).pipe(
+    return this.http.put<Food>(EDIT_FOOD, editProduct).pipe(
       tap({
         next: (product) => {
-          this.toastrService.success(`${product.name} Edited Successfully`,
+          this.toastrService.success(`${product.name} edited Successfully`,
           'Edit Product')
         },
         error: (errorResponse) => {
-          this.toastrService.error(errorResponse.error, 'Editing Product Failed!');
+          this.toastrService.error(errorResponse.error, 'Editing product failed!');
         }
       })
     )
@@ -71,14 +74,13 @@ export class FoodService {
     return this.http.post<Food>(DELETE_FOOD, deleteProduct).pipe(
       tap({
         next: (product) => {
-          this.toastrService.success(`${product.name} deleted Successfully`,
-          'Edit Product')
+          this.toastrService.success(`${product.name} deleted successfully`,
+          'Delete Product')
         },
         error: (errorResponse) => {
-          this.toastrService.error(errorResponse.error, 'Deleting Product Failed!');
+          this.toastrService.error(errorResponse.error, 'Deleting product failed!');
         }
       })
     )
   }
-
 }

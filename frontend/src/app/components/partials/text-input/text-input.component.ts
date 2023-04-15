@@ -15,7 +15,7 @@ export class TextInputComponent implements OnInit {
   @Input()
   label!: string;
   @Input()
-  type: 'text' | 'password' | 'email' | 'file' | 'checkbox' = 'text';
+  type: 'text' | 'password' | 'email' | 'file' | 'select' | 'textArea' = 'text';
   @Input()
   accept!: string;
 
