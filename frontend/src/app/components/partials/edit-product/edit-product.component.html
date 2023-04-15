@@ -22,7 +22,7 @@
         <label for="CategoryList">Category List</label>
         <div *ngFor="let food of foods">
           {{food}}
-            
+
         </div>
       </div>
       <br />
@@ -52,14 +52,6 @@
       </text-input>
 
       <text-input
-        [control]="fc.favorite"
-        [showErrorsWhen]="isSubmitted"
-        label="Favorite"
-        type="text"
-      >
-      </text-input>
-
-      <text-input
         [control]="fc.price"
         [showErrorsWhen]="isSubmitted"
         label="Price"
@@ -76,21 +68,13 @@
       </text-input>
 
       <text-input
-        [control]="fc.stars"
-        [showErrorsWhen]="isSubmitted"
-        label="Stars"
-        type1="number"
-      >
-      </text-input>
-
-      <text-input
         [control]="fc.imageUrl"
         [showErrorsWhen]="isSubmitted"
         label="Picture"
-        type="text"
+        type="file"
+        accept="image/*"
       >
       </text-input>
-      <input type="file" id="img" name="img" accept="image/*" required />
 
       <default-button text="Edit Product"></default-button>
     </form>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { CartService } from 'src/app/services/cart.service';
 import { FoodService } from 'src/app/services/food.service';
 import { Food } from 'src/app/shared/models/Food';
 
@@ -10,8 +11,11 @@ import { Food } from 'src/app/shared/models/Food';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
+  food!: Food;
   foods: Food[] = [];
-  constructor(private foodService: FoodService, activatedRoute: ActivatedRoute) {
+  constructor(private foodService: FoodService, activatedRoute: ActivatedRoute,
+    private cartService: CartService,
+    private router: Router) {
     let foodsObservable: Observable<Food[]>;
     activatedRoute.params.subscribe((params) => {
       if (params.searchTerm)
@@ -28,4 +32,12 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  addToCart(){
+    if (localStorage.getItem('User'))
+      this.cartService.addToCart(this.food);
+    else
+      this.router.navigateByUrl('/login');
+      // this.router.navigateByUrl('/cart-page');
+  }
 }

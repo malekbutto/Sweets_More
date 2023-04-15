@@ -38,6 +38,24 @@ li a img{
   height: 14.5rem;
 }
 
+li a img:hover{
+  opacity: 4;
+  /* width: 150%;
+  height: 100%; */
+  position: relative;
+  top: 40;
+  left: 40;
+  background-color: rgba(0, 0, 0, 0.0);
+  z-index: 2;
+  display: inline;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: all 0.5s ease;
+}
+
 .content{
   margin-top: .3rem;
   padding: .5rem 1rem;
@@ -45,20 +63,16 @@ li a img{
   height: 7rem;
 }
 
-.favorite{
+/* .favorite{
   position: absolute;
   top: .5rem;
   right: 1rem;
   font-size: 1.2rem;
-}
+} */
 
-.favorite.not{
+/* .favorite.not{
   color: gray;
-}
-
-.stars{
-  margin-bottom: .2rem;
-}
+} */
 
 .price{
   background: white;
@@ -66,4 +80,25 @@ li a img{
   margin-bottom: 1.5rem;
   font-size: 1.5rem;
   text-align: center;
+}
+
+.material-icons{
+  color: white;
+  background-color: #e72929;
+  border: none;
+  width: 1.5rem;
+  position: absolute;
+  top: .5rem;
+  right: 1rem;
+  align-items: center;
+  border-radius: 1.6rem;
+  font-size: 1.2rem;
+  padding: 0.2rem;
+  outline: none;
+
+}
+
+.material-icons:hover{
+  opacity: .3;
+  cursor: hand;
 }

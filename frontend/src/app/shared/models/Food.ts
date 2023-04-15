@@ -5,8 +5,7 @@ export class Food {
   // quantity!: number;
   tags!: string;
   description!: string;
-  favorite!: boolean;
-  stars!: number;
+  // favorite!: boolean;
   piece!: string;
   imageUrl!: string;
 }

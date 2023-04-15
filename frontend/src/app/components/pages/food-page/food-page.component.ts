@@ -35,10 +35,10 @@ export class FoodPageComponent implements OnInit {
       // this.router.navigateByUrl('/cart-page');
   }
 
-  favorite(){
-    if (this.food.favorite)
-      this.food.favorite = false;
-    else
-      this.food.favorite = true;
-  }
+  // favorite(){
+  //   if (this.food.favorite)
+  //     this.food.favorite = false;
+  //   else
+  //     this.food.favorite = true;
+  // }
 }

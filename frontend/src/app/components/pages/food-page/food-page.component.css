@@ -25,22 +25,6 @@ img:hover{
   cursor: pointer;
 }
 
-/* .details info{
-  opacity: 0;
-  width: 150%;
-  height: 100%;
-  position: relative;
-  top: 40;
-  left: 40;
-  background-color: rgba(0, 0, 0, 0.0);
-  z-index: 2;
-  display: inline;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.5s ease;
-  cursor: pointer;
-} */
-
 .details{
   width: 100%;
   display: flex;
@@ -62,7 +46,7 @@ img:hover{
   font-weight: bold;
 }
 
-.details .header .favorite{
+/* .details .header .favorite{
   cursor: pointer;
   color: #e72929;
   font-size: 2.5rem;
@@ -70,7 +54,7 @@ img:hover{
 
 .details .header .favorite.not{
   color: gray;
-}
+} */
 
 .details .description{
   padding: .6rem 2rem .6rem 0;

@@ -48,8 +48,6 @@ export class EditProductComponent implements OnInit{
       price: ['', [Validators.required, Validators.minLength(0), Validators.maxLength(3)]],
       tags: ['', [Validators.required]],
       description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(500)]],
-      favorite: ['', [Validators.required]],
-      stars: ['', [Validators.required, Validators.maxLength(1)]],
       piece: ['', [Validators.required]],
       imageUrl: ['',],
     }
@@ -77,8 +75,6 @@ submit() {
     price: fv.price,
     tags: fv.category,
     description: fv.description,
-    favorite: fv.favorite,
-    stars: fv.stars,
     piece: fv.piece,
     imageUrl: fv.imageUrl,
   };

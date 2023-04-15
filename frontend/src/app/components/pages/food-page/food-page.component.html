@@ -12,18 +12,7 @@
       <span class="name">
         {{ food.name }}
       </span>
-      <span class="favorite {{ food.favorite ? '' : 'not' }}" (click)="favorite()"> ❤ </span>
-    </div>
-    <div class="rating">
-      <star-rating
-        [value]="food.stars"
-        [totalstars]="5"
-        checkedcolor="red"
-        uncheckedcolor="black"
-        size="30px"
-        [readonly]="true"
-      >
-      </star-rating>
+      <!-- <span class="favorite {{ food.favorite ? '' : 'not' }}" (click)="favorite()"> ❤ </span> -->
     </div>
     <div class="description">
       {{ food.description }}

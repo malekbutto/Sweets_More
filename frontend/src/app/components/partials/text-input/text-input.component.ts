@@ -15,7 +15,9 @@ export class TextInputComponent implements OnInit {
   @Input()
   label!: string;
   @Input()
-  type: 'text' | 'password' | 'email' = 'text';
+  type: 'text' | 'password' | 'email' | 'file' | 'checkbox' = 'text';
+  @Input()
+  accept!: string;
 
   get formControl(){
     return this.control as FormControl;
