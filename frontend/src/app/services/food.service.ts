@@ -49,8 +49,6 @@ export class FoodService {
         },
         error: (errorResponse) => {
           this.toastrService.error(errorResponse.error, 'Adding new product failed!');
-          console.log(errorResponse.error);
-
         }
       })
     )
