@@ -76,4 +76,13 @@ router.get("/:tagName/:foodId", asyncHandler (
   }
 ));
 
+router.post("/addProduct", asyncHandler(async (req: any, res: any) => {
+  const requestProduct = req.body;
+  
+  const newProduct = new FoodModel({...requestProduct});
+  await newProduct.save();
+  res.send(newProduct);
+})
+)
+
 export default router;
