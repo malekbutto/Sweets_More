@@ -11,5 +11,31 @@
 }
 
 .details{
+  height: 50rem;
   width: 25rem;
+}
+
+.category{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  margin-top: 1rem;
+  font-size: 18px;
+  text-decoration: underline;
+}
+
+.categoryProducts{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 150%;
+  font-size: 16px;
+  padding: 1px;
+  font-size: 500;
+  text-decoration: underline;
 }

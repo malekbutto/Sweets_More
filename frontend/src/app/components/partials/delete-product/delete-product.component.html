@@ -1,45 +1,37 @@
 <div class="container">
   <div class="details">
     <app-title title="Delete Product"></app-title>
-    <form [formGroup]="deleteProduct" (ngSubmit)="submit()">
-      <text-input
-        [control]="fc.tags"
-        [showErrorsWhen]="isSubmitted"
-        label="Category"
-        type="text"
-      >
-      </text-input>
-      <select class="select"
-        fullWidth
-        size="3"
-        font-size="30px"
-      >
-        <Option value="sweets">Sweets</Option>
-        <Option value="pastries">Pastries</Option>
-        <Option value="ourCuisine">Our Cuisine</Option>
-      </select>
-
-      <text-input
-        [control]="fc.name"
-        [showErrorsWhen]="isSubmitted"
-        label="Product Name"
-      >
-      </text-input>
-
-      <!-- <Select
-        type="text"
-        id="category"
-        name="category"
-        required
-        fullWidth
-        size="3"
-        font-size="30px"
-      >
-        <Option value="sweets">Sweets</Option>
-        <Option value="pastries">Pastries</Option>
-        <Option value="ourCuisine">Our Cuisine</Option>
-      </Select> -->
-      <!-- </text-input> -->
+    <form [formGroup]="deleteProductForm" (ngSubmit)="submit()">
+      <div>
+        <label for="Category">Category</label>
+      </div>
+      <div class="category">
+        <div *ngFor="let category of categories">
+          <input
+            type="radio"
+            id="category"
+            name="category"
+            value="{{ category }}"
+            (change)="getFoodByTag(category)"
+          />
+          {{ category }}
+        </div>
+      </div>
+      <br />
+      <div>
+        <label for="CategoryProducts">Category Products</label>
+      </div>
+      <div class="categoryProducts">
+        <div *ngFor="let food of foods">
+          <input
+            type="radio"
+            id="product"
+            name="CategoryProducts"
+            value="{{ food.name }}"
+            (change)="getFoodById(food.id)"
+          />{{ food.name }}
+        </div>
+      </div>
 
       <default-button text="Delete Product"></default-button>
     </form>
