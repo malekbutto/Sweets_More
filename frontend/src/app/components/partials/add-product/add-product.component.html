@@ -8,24 +8,25 @@
         label="Product Name"
       >
       </text-input>
+      <div class="tags" *ngFor="let category of categories">
+        <input (change)="onItemChange($event)" type="radio" name="category" value={{category}}> {{category}}
+      </div>
 
-      <text-input
-        [control]="fc.tags"
-        [showErrorsWhen]="isSubmitted"
-        label="Category (Sweets / Pastries / Our Cuisine) "
-        type="select"
+        <text-input
+          [control]="fc.tags"
+          [showErrorsWhen]="isSubmitted"
+          label="Category"
+          type="text"
+          value={{selectedCategory}}
         >
-        <Option value="Sweets">Sweets</Option>
-        <Option value="Pastries">Pastries</Option>
-        <Option value="Our Cuisine">Our Cuisine</Option>
-
-      </text-input>
+        {{selectedCategory}}
+        </text-input>
 
       <text-input
         [control]="fc.description"
         [showErrorsWhen]="isSubmitted"
         label="Description"
-        type="textArea"
+        type="text"
       >
       </text-input>
 
@@ -52,7 +53,7 @@
         type="file"
         accept="image/*"
       >
-    </text-input>
+      </text-input>
 
       <default-button text="Add Product"></default-button>
     </form>

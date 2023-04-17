@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Event, Router } from '@angular/router';
 import { FoodService } from 'src/app/services/food.service';
 import { IAddProduct } from 'src/app/shared/interfaces/IAddProduct';
 import { Food } from 'src/app/shared/models/Food';
@@ -13,6 +13,12 @@ import { Food } from 'src/app/shared/models/Food';
 export class AddProductComponent implements OnInit {
   product: Food = new Food();
   addProductForm!: FormGroup;
+  selectedCategory: string = '';
+  categories: any = [
+    'Sweets',
+    'Pastries',
+    'Our Cuisine'
+  ];
   isSubmitted = false;
   returnUrl = '';
 
@@ -47,7 +53,7 @@ export class AddProductComponent implements OnInit {
     this.product.id = crypto.randomUUID();
     this.product.name = this.fc.name.value,
     this.product.price = parseInt(this.fc.price.value),
-    this.product.tags = this.fc.tags.value,
+    this.product.tags = this.fc.tags.value;
     this.product.description = this.fc.description.value,
     this.product.piece = this.fc.piece.value,
     this.product.imageUrl = this.fc.imageUrl.value;
@@ -60,4 +66,10 @@ export class AddProductComponent implements OnInit {
       }
     });
   }
+
+  onItemChange(e:any){
+    this.selectedCategory = e.target.value;
+    console.log(" Value is : " + e.target.value);
+ }
+
 }
