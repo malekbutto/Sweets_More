@@ -54,8 +54,8 @@ export class FoodService {
     )
   }
 
-  editProduct(editProduct:IEditProduct): Observable<Food>{
-    return this.http.put<Food>(EDIT_FOOD, editProduct).pipe(
+  editProduct(id:IEditProduct): Observable<Food>{
+    return this.http.put<Food>(EDIT_FOOD, id).pipe(
       tap({
         next: (product) => {
           this.toastrService.success(`${product.name} edited Successfully`,
@@ -68,8 +68,8 @@ export class FoodService {
     )
   }
 
-  deleteProduct(deleteProduct:string): Observable<Food>{
-    return this.http.post<Food>(DELETE_FOOD, deleteProduct).pipe(
+  deleteProduct(id:string): Observable<Food>{
+    return this.http.post<Food>(DELETE_FOOD, id).pipe(
       tap({
         next: (product) => {
           this.toastrService.success(`${product.name} deleted successfully`,
