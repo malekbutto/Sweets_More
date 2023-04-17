@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FoodService } from 'src/app/services/food.service';
-import { FOODS_BY_TAG_URL } from 'src/app/shared/constants/urls';
+import { FOODS_BY_ID_URL, FOODS_BY_TAG_URL } from 'src/app/shared/constants/urls';
 import { IEditProduct } from 'src/app/shared/interfaces/IEditProduct';
 import { Food } from 'src/app/shared/models/Food';
 
@@ -15,12 +15,13 @@ import { Food } from 'src/app/shared/models/Food';
 })
 export class EditProductComponent implements OnInit{
 
-  editProduct!: FormGroup;
+  editProductForm!: FormGroup;
   isSubmitted = false;
   returnUrl = '';
 
-  category = ['Sweets', 'Pastries', 'Our Cuisine'];
+  categories = ['Sweets', 'Pastries', 'Our Cuisine'];
   foods: Food[] = [];
+  products!: Food;
 
   constructor(
     private http:HttpClient,
@@ -28,22 +29,10 @@ export class EditProductComponent implements OnInit{
     private foodService: FoodService,
     private activatedRoute: ActivatedRoute,
     private router: Router
-  ) {
-    let foodsObservable: Observable<Food[]>;
-    // activatedRoute.params.subscribe((params) => {
-    //   if (params.tag)
-    //     foodsObservable = this.foodService.getFoodByTag(params.tag);
-
-    //     foodsObservable.subscribe((serverFoods) => {
-    //       this.foods = serverFoods;
-    //     })
-    //   });
-
-    // this.foods = this.getFoodByTag(tag:String);
-  }
+  ) { }
 
   ngOnInit(): void {
-    this.editProduct = this.formBuilder.group({
+    this.editProductForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(5)]],
       price: ['', [Validators.required, Validators.minLength(0), Validators.maxLength(3)]],
       tags: ['', [Validators.required]],
@@ -57,19 +46,29 @@ export class EditProductComponent implements OnInit{
 }
 
 get fc() {
-  return this.editProduct.controls;
+  return this.editProductForm.controls;
 }
 
 getFoodByTag(tag: string): Observable<Food[]>{
+  this.foodService.getFoodByTag(tag).subscribe(serverTags => {
+    this.foods = serverTags;
+  });
   return this.http.get<Food[]>(FOODS_BY_TAG_URL + tag);
+}
+
+getFoodById(id: string): Observable<Food[]>{
+  this.foodService.getFoodById(id).subscribe(serverTags => {
+    this.products = serverTags;
+  });
+  return this.http.get<Food[]>(FOODS_BY_ID_URL + id);
 }
 
 submit() {
   this.isSubmitted = true;
-  if (this.editProduct.invalid)
+  if (this.editProductForm.invalid)
     return;
 
-  const fv = this.editProduct.value;
+  const fv = this.editProductForm.value;
   const product: IEditProduct = {
     name: fv.name,
     price: fv.price,

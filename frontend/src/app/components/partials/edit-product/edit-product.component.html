@@ -1,7 +1,7 @@
 <div class="container">
   <div class="details">
     <app-title title="Edit Product"></app-title>
-    <form [formGroup]="editProduct" (ngSubmit)="submit()">
+    <form [formGroup]="editProductForm" (ngSubmit)="submit()">
       <!-- <text-input
         [control]="fc.tags"
         [showErrorsWhen]="isSubmitted"
@@ -9,20 +9,34 @@
         type="text"
       >
       </text-input> -->
-      <div class="Category">
+      <div>
         <label for="Category">Category</label>
-        <div *ngFor="let item of category">
-          <label for="item"></label>
-          <input type="radio" id="item" name="item" value="item" onclick="getFoodByTag(item)"/>{{ item }}
+      </div>
+      <div class="category">
+        <div *ngFor="let category of categories">
+          <input
+            type="radio"
+            id="category"
+            name="category"
+            value="{{ category }}"
+            (change)="getFoodByTag(category)"
+          />
+          {{ category }}
         </div>
       </div>
       <br />
-
-      <div class="CategoryList">
-        <label for="CategoryList">Category List</label>
+      <div>
+        <label for="CategoryProducts">Category Products</label>
+      </div>
+      <div class="categoryProducts">
         <div *ngFor="let food of foods">
-          {{food}}
-
+          <input
+            type="radio"
+            id="product"
+            name="CategoryProducts"
+            value="{{ food.name }}"
+            (change)="getFoodById(food.id)"
+          />{{ food.name }}
         </div>
       </div>
       <br />
@@ -32,9 +46,9 @@
         [showErrorsWhen]="isSubmitted"
         label="Product Name"
       >
-      <div *ngFor="let food of foods">
-        {{food.name}}
-      </div>
+        <div *ngFor="let food of foods">
+          {{ food.name }}
+        </div>
       </text-input>
 
       <text-input
