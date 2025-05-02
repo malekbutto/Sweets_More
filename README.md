@@ -1,9 +1,7 @@
-
 Sweets & More
 
 Online shopping website for our family shop, which contains many
 products to sell, devided by categories.
-
 
 ## Features
 
@@ -13,8 +11,7 @@ products to sell, devided by categories.
 - CRUD functions
 - Toastify
 - Material-Icons library
-- Material-Symbols-Outlined library 
-
+- Material-Symbols-Outlined library
 
 ## Documentation
 
@@ -41,19 +38,19 @@ Right click of "backend" folder -> "open in integrated terminal"
 
 run the following code
 '
-  npm start
+npm start
 '
 
 Right click of "frontend" folder -> "open in integrated terminal"
 
 run the following code
-'
-  npm start
+' 
+npm start
 '
 
 open browser with this URL:
 http://localhost:4200/
-  
+
 ## Author - Malek Butto
 
 - [@Facebook](https://www.facebook.com/malek.butto/)
@@ -61,6 +58,6 @@ http://localhost:4200/
 - [@LinkedIn](https://www.linkedin.com/in/malek-butto/)
 - [@Github](https://github.com/malekbutto/)
 
-
 ## 🚀 About Me
+
 A full stack developer

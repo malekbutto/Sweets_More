@@ -1,20 +1,28 @@
 .container{
   margin-top: 1rem;
   display: flex;
-  margin: 0 2rem 6rem 2rem;
+  gap: 2rem;
   flex-wrap: wrap;
-  justify-content: center;
-  border-bottom: 1px solid #e72929;
+  padding: 1rem;
 }
 
 .content{
-  width: 35rem;
-  margin-right: 3rem;
+  flex: 1 1 40%;
+  min-width: 300px;
 }
 
 .content,form{
   display: flex;
   flex-direction: column;
+}
+
+.map {
+  flex: 1 1 auto;
+  min-width: 400px;
+  height: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 form{

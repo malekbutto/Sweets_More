@@ -8,16 +8,12 @@
     <order-items-list [order]="order"></order-items-list>
   </div>
   <div class="map">
-    <app-title
-    title="Choose Your Address On Map"
-    fontSize="1.6rem"></app-title>
-    <map [order]="order"></map>
+    <app-title title="Choose Your Address On Map" fontSize="1.6rem"></app-title>
+    <map [order]="order" (locationSelected)="onLocationSelected($event)"></map>
   </div>
   <div class="buttons-container">
     <div class="buttons">
-      <button (click)="createOrder()">
-        Place Order
-      </button>
+      <button (click)="createOrder()">Place Order</button>
     </div>
   </div>
 </div>
