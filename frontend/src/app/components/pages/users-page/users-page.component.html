@@ -8,14 +8,15 @@
       <strong> Email </strong>
     </td>
     <td>
+      <strong> Phone </strong>
+    </td>
+    <td>
       <strong> Address </strong>
     </td>
     <td>
       <strong> Admin </strong>
       <span class="role" *ngIf="!disableValue">
-        <button class="changeRole" (click)="changeRole()">
-          Change Role
-        </button>
+        <button class="changeRole" (click)="changeRole()">Change Role</button>
       </span>
     </td>
     <td>
@@ -24,41 +25,113 @@
   </tr>
   <tr *ngFor="let user of users">
     <td>
-      <input type="text" value="{{ user.name }} " name="text" width="auto" [disabled]="disableValue">
+      <input
+        type="text"
+        value="{{ user.name }} "
+        name="text"
+        width="auto"
+        [disabled]="disableValue"
+      />
     </td>
     <td>
-      <input type="text" value="{{ user.email }}" name="text" width="auto" [disabled]="disableValue">
+      <input
+        type="text"
+        value="{{ user.email }}"
+        name="text"
+        width="auto"
+        [disabled]="disableValue"
+      />
     </td>
     <td>
-      <input type="text" value="{{ user.address }}" name="text" width="auto" [disabled]="disableValue">
+      <input
+        type="text"
+        value="{{ user.phone }}"
+        name="text"
+        width="auto"
+        [disabled]="disableValue"
+      />
+    </td>
+    <td>
+      <input
+        type="text"
+        value="{{ user.address }}"
+        name="text"
+        width="auto"
+        [disabled]="disableValue"
+      />
     </td>
     <td *ngIf="user.isAdmin">
       <span *ngIf="disableRole">
-        <span class='material-symbols-outlined' style="color: green;"> check_box </span>
+        <span class="material-symbols-outlined" style="color: green">
+          check_box
+        </span>
       </span>
       <span *ngIf="!disableRole">
-        <span class='material-symbols-outlined' title="Make Simple User" style="color: red; cursor: pointer" (click)="openDialog()"> cancel </span>
+        <span
+          class="material-symbols-outlined"
+          title="Make Simple User"
+          style="color: red; cursor: pointer"
+          (click)="openDialog()"
+        >
+          cancel
+        </span>
       </span>
     </td>
     <td *ngIf="!user.isAdmin">
       <span *ngIf="!disableRole">
-        <span class='material-symbols-outlined' title="Make Admin" style="color: green; cursor: pointer" (click)="openDialog()"> check_box </span>
+        <span
+          class="material-symbols-outlined"
+          title="Make Admin"
+          style="color: green; cursor: pointer"
+          (click)="openDialog()"
+        >
+          check_box
+        </span>
       </span>
       <span *ngIf="disableRole">
-        <span class='material-symbols-outlined' style="color: red;"> cancel </span>
+        <span class="material-symbols-outlined" style="color: red">
+          cancel
+        </span>
       </span>
     </td>
     <td>
       <span *ngIf="disableValue">
-        <span class="material-symbols-outlined" title="Confirm" style="cursor: pointer; color: gray;"> priority </span>
+        <span
+          class="material-symbols-outlined"
+          title="Confirm"
+          style="cursor: pointer; color: gray"
+        >
+          priority
+        </span>
       </span>
       <span *ngIf="!disableValue">
-        <span class="material-symbols-outlined" title="Confirm" style="cursor: pointer; color: blue;" (click)="updateUser()"> priority </span>
+        <span
+          class="material-symbols-outlined"
+          title="Confirm"
+          style="cursor: pointer; color: blue"
+          (click)="updateUser()"
+        >
+          priority
+        </span>
       </span>
       <span class="material-symbols-outlined"> more_vert </span>
-      <span class="material-symbols-outlined" title="Edit" (click)="enableEdit()" style="cursor: pointer;"> edit_square </span>
+      <span
+        class="material-symbols-outlined"
+        title="Edit"
+        (click)="enableEdit()"
+        style="cursor: pointer"
+      >
+        edit_square
+      </span>
       <span class="material-symbols-outlined"> more_vert </span>
-      <span class="material-symbols-outlined" title="Delete" (click)="deleteUser(user)" style="cursor: pointer;"> delete </span>
+      <span
+        class="material-symbols-outlined"
+        title="Delete"
+        (click)="deleteUser(user)"
+        style="cursor: pointer"
+      >
+        delete
+      </span>
     </td>
   </tr>
 </table>

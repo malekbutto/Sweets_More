@@ -23,9 +23,11 @@ export class RegisterPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.registerForm = this.formBuilder.group({
+    this.registerForm = this.formBuilder.group(
+      {
         name: ['', [Validators.required, Validators.minLength(5)]],
         email: ['', [Validators.required, Validators.email]],
+        phone: ['', [Validators.required, Validators.minLength(10)]],
         password: ['', [Validators.required, Validators.minLength(5)]],
         confirmPassword: ['', [Validators.required]],
         address: ['', [Validators.required, Validators.minLength(10)]],
@@ -44,13 +46,13 @@ export class RegisterPageComponent implements OnInit {
 
   submit() {
     this.isSubmitted = true;
-    if (this.registerForm.invalid)
-      return;
+    if (this.registerForm.invalid) return;
 
     const fv = this.registerForm.value;
     const user: IUserRegister = {
       name: fv.name,
       email: fv.email,
+      phone: fv.phone,
       password: fv.password,
       confirmPassword: fv.confirmPassword,
       address: fv.address,

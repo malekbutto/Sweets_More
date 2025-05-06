@@ -8,10 +8,9 @@ import { PasswordsMatchValidator } from 'src/app/shared/validators/password_matc
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
-  styleUrls: ['./profile-page.component.css']
+  styleUrls: ['./profile-page.component.css'],
 })
 export class ProfilePageComponent implements OnInit {
-
   editUserForm!: FormGroup;
   isSubmitted = false;
   returnUrl = '';
@@ -24,10 +23,12 @@ export class ProfilePageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    let {name, email, address} = this.userService.currentUser;
-    this.editUserForm = this.formBuilder.group({
+    let { name, email, phone, address } = this.userService.currentUser;
+    this.editUserForm = this.formBuilder.group(
+      {
         name: [name, [Validators.required, Validators.minLength(5)]],
         email: [email, [Validators.required, Validators.email]],
+        phone: [phone, [Validators.required, Validators.minLength(9)]],
         password: ['', [Validators.required, Validators.minLength(5)]],
         confirmPassword: ['', [Validators.required]],
         address: [address, [Validators.required, Validators.minLength(10)]],
@@ -46,21 +47,20 @@ export class ProfilePageComponent implements OnInit {
 
   submit() {
     this.isSubmitted = true;
-    if (this.editUserForm.invalid)
-      return;
+    if (this.editUserForm.invalid) return;
 
     const fv = this.editUserForm.value;
     const user: IUserRegister = {
       name: fv.name,
       email: fv.email,
+      phone: fv.phone,
       password: fv.password,
       confirmPassword: fv.confirmPassword,
       address: fv.address,
     };
 
     this.userService.updateUser(user).subscribe(() => {
-      this.router.navigateByUrl("/");
+      this.router.navigateByUrl('/');
     });
   }
 }
-
