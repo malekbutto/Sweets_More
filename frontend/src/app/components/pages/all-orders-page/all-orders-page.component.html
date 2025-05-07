@@ -12,7 +12,7 @@
       <strong> Address For Shipping </strong>
     </td> -->
     <td>
-      <strong> Items </strong>
+      <strong> Items <br />(Quantity) </strong>
     </td>
     <td>
       <strong> Total Price </strong>
@@ -36,7 +36,7 @@
     </td> -->
     <td>
       <p *ngFor="let item of order.items">
-        "{{ item.food.name }}"
+        ({{ item.quantity }})-{{ item.food.name }}
       </p>
     </td>
     <td>{{ order.totalPrice }} NIS</td>
