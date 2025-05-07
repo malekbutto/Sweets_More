@@ -16,21 +16,29 @@
           </span>
           <div class="menu">
             <a routerLink="/users"
-              ><span class="material-symbols-outlined"> manage_accounts </span>   Users
+              ><span class="material-symbols-outlined"> manage_accounts </span>
+              Users
             </a>
             <a routerLink="/allOrders">
-              <span class="material-symbols-outlined"> list_alt </span>   All Orders
+              <span class="material-symbols-outlined"> list_alt </span> All
+              Orders
             </a>
-            <a>Manage Products
+            <a
+              >Manage Products
               <div class="manage-product">
                 <a routerLink="/addProduct">
-                  <span class="material-symbols-outlined"> library_add </span>   Add Product
+                  <span class="material-symbols-outlined"> library_add </span>
+                  Add Product
                 </a>
                 <a routerLink="/editProduct">
-                  <span class="material-symbols-outlined"> edit </span>   Edit Product
+                  <span class="material-symbols-outlined"> edit </span> Edit
+                  Product
                 </a>
                 <a routerLink="/deleteProduct">
-                  <span class="material-symbols-outlined"> delete_forever </span>   Delete Product
+                  <span class="material-symbols-outlined">
+                    delete_forever
+                  </span>
+                  Delete Product
                 </a>
               </div>
             </a>
@@ -40,13 +48,13 @@
           <a>{{ user.name }}</a>
           <div class="menu">
             <a routerLink="/profile">
-              <span class="material-symbols-outlined"> person </span>   Profile
+              <span class="material-symbols-outlined"> person </span> Profile
             </a>
             <a routerLink="/myOrders">
-              <span class="material-symbols-outlined"> dvr </span>   My Orders
+              <span class="material-symbols-outlined"> dvr </span> My Orders
             </a>
             <a (click)="logout()">
-              <span class="material-symbols-outlined"> logout </span>   Logout
+              <span class="material-symbols-outlined"> logout </span> Logout
             </a>
           </div>
         </li>

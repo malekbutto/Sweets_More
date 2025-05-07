@@ -1,0 +1,55 @@
+<h3>My Orders</h3>
+
+<table>
+  <tr colspan="2">
+    <td>
+      <strong> Name </strong>
+    </td>
+    <td>
+      <strong> Address </strong>
+    </td>
+    <!-- <td>
+      <strong> Address For Shipping </strong>
+    </td> -->
+    <td>
+      <strong> Items <br />(Quantity)</strong>
+    </td>
+    <td>
+      <strong> Total Price </strong>
+    </td>
+    <td>
+      <strong> Created At </strong>
+    </td>
+    <td>
+      <strong> Manage </strong>
+    </td>
+  </tr>
+  <tr *ngFor="let order of filteredOrders">
+    <td>
+      {{ order.name }}
+    </td>
+    <td>
+      {{ order.address }}
+    </td>
+    <!-- <td>
+        "{{ order.addressLatLng }}"
+    </td> -->
+    <td>
+      <p *ngFor="let item of order.items">
+        ({{ item.quantity }})-{{ item.food.name }}
+      </p>
+    </td>
+    <td>{{ order.totalPrice }} NIS</td>
+    <!-- <td>{{ item.o }} NIS</td> -->
+    <td>
+      {{ order.createdAt }}
+    </td>
+    <td>
+      <span class="material-symbols-outlined" title="Confirm"> priority </span>
+      <span class="material-symbols-outlined"> more_vert </span>
+      <span class="material-symbols-outlined" title="Edit"> edit_square </span>
+      <span class="material-symbols-outlined"> more_vert </span>
+      <span class="material-symbols-outlined" title="Delete"> delete </span>
+    </td>
+  </tr>
+</table>
