@@ -8,9 +8,6 @@
     <td>
       <strong> Address </strong>
     </td>
-    <!-- <td>
-      <strong> Address For Shipping </strong>
-    </td> -->
     <td>
       <strong> Items <br />(Quantity)</strong>
     </td>
@@ -31,16 +28,12 @@
     <td>
       {{ order.address }}
     </td>
-    <!-- <td>
-        "{{ order.addressLatLng }}"
-    </td> -->
     <td>
       <p *ngFor="let item of order.items">
         ({{ item.quantity }})-{{ item.food.name }}
       </p>
     </td>
     <td>{{ order.totalPrice }} NIS</td>
-    <!-- <td>{{ item.o }} NIS</td> -->
     <td>
       {{ order.createdAt }}
     </td>
