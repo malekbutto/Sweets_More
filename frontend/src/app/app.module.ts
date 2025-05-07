@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/partials/header/header.component';
@@ -29,7 +29,7 @@ import { MapComponent } from './components/partials/map/map.component';
 import { FooterComponent } from './components/partials/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthInterceptor } from './auth/guards/auth.interceptor';
-import { OrdersPageComponent } from './components/pages/orders-page/orders.component';
+import { myOrdersComponent } from './components/pages/myOrders-page/myOrders.component';
 import { AllOrdersPageComponent } from './components/pages/all-orders-page/all-orders-page.component';
 import { ProfilePageComponent } from './components/pages/profile-page/profile-page.component';
 import { AddProductComponent } from './components/partials/add-product/add-product.component';
@@ -60,7 +60,7 @@ import { UsersPageComponent } from './components/pages/users-page/users-page.com
     OrderItemsListComponent,
     MapComponent,
     FooterComponent,
-    OrdersPageComponent,
+    myOrdersComponent,
     AllOrdersPageComponent,
     ProfilePageComponent,
     AddProductComponent,
@@ -77,18 +77,18 @@ import { UsersPageComponent } from './components/pages/users-page/users-page.com
     HttpClientModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
-      timeOut:2000,
-      positionClass:'toast-bottom-right',
-      newestOnTop:false,
+      timeOut: 2000,
+      positionClass: 'toast-bottom-right',
+      newestOnTop: false,
       closeButton: true,
     }),
     FontAwesomeModule,
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
   // entryComponents:[MatConfirmDialogComponent]
 })
-export class AppModule { }
+export class AppModule {}
