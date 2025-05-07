@@ -9,18 +9,24 @@
       >
       </text-input>
       <div class="tags" *ngFor="let category of categories">
-        <input (change)="onItemChange($event)" type="radio" name="category" value={{category}}> {{category}}
+        <input
+          (change)="onItemChange($event)"
+          type="radio"
+          name="category"
+          value="{{ category }}"
+        />
+        {{ category }}
       </div>
 
-        <text-input
-          [control]="fc.tags"
-          [showErrorsWhen]="isSubmitted"
-          label="Category"
-          type="text"
-          value={{selectedCategory}}
-        >
-        {{selectedCategory}}
-        </text-input>
+      <text-input
+        [control]="fc.tags"
+        [showErrorsWhen]="isSubmitted"
+        label="Category"
+        type="text"
+        value="{{ selectedCategory }}"
+      >
+        {{ selectedCategory }}
+      </text-input>
 
       <text-input
         [control]="fc.description"
@@ -33,8 +39,8 @@
       <text-input
         [control]="fc.price"
         [showErrorsWhen]="isSubmitted"
-        label="Price"
-        type="text"
+        label="Price (NIS)"
+        type="number"
       >
       </text-input>
 
