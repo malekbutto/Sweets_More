@@ -12,8 +12,100 @@ export class CartService {
   private cart: Cart = this.getCartFromLocalStorage();
   private cartSubject: BehaviorSubject<Cart> = new BehaviorSubject(this.cart);
   public cartObservable = this.cartSubject.asObservable();
+  private currentUserId: string = this.getCurrentUserId();
 
-  constructor(private toastrService: ToastrService) {}
+  constructor(private toastrService: ToastrService) {
+    this.initializeUser();
+  }
+
+  // Initialize or update the current user
+  public setCurrentUser(userId: string | null): void {
+    if (userId) {
+      this.currentUserId = userId;
+      // this.migrateGuestCart();
+    } else {
+      this.currentUserId = this.getOrCreateGuestId();
+    }
+    this.loadUserCart();
+  }
+
+  private getCurrentUserId(): string {
+    const userJson = localStorage.getItem('User');
+    return userJson ? JSON.parse(userJson).id : this.getOrCreateGuestId();
+  }
+
+  private initializeUser(): void {
+    const userJson = localStorage.getItem('User');
+    this.currentUserId = userJson
+      ? JSON.parse(userJson).id
+      : this.getOrCreateGuestId();
+  }
+
+  private getOrCreateGuestId(): string {
+    let guestId = localStorage.getItem('guestId');
+    if (!guestId) {
+      guestId = 'guest_' + Math.random().toString(36).substring(2, 11);
+      localStorage.setItem('guestId', guestId);
+    }
+    return guestId;
+  }
+
+  // private migrateGuestCart(): void {
+  //   const guestId = localStorage.getItem('guestId');
+  //   if (!guestId || guestId === this.currentUserId) return;
+
+  //   const guestCartKey = `Cart_${guestId}`;
+  //   const guestCartJson = localStorage.getItem(guestCartKey);
+
+  //   if (guestCartJson) {
+  //     const guestCart = JSON.parse(guestCartJson);
+  //     const userCart = this.cart;
+
+  //     // Merge guest cart with user cart
+  //     guestCart.items.forEach((guestItem: CartItem) => {
+  //       const existingItem = userCart.items.find(
+  //         (item) => item.food.id === guestItem.food.id
+  //       );
+  //       if (existingItem) {
+  //         existingItem.quantity += guestItem.quantity;
+  //         existingItem.price = existingItem.quantity * existingItem.food.price;
+  //       } else {
+  //         userCart.items.push(guestItem);
+  //       }
+  //     });
+
+  //     // Clean up guest cart
+  //     localStorage.removeItem(guestCartKey);
+  //     localStorage.removeItem('guestId');
+  //     this.setCartToLocalStorage();
+  //   }
+  // }
+
+  private loadUserCart(): void {
+    this.cart = this.getCartFromLocalStorage();
+    this.cartSubject.next(this.cart);
+  }
+
+  private setCartToLocalStorage(): void {
+    const cartKey = `Cart_${this.currentUserId}`;
+    this.cart.totalPrice = this.cart.items.reduce(
+      (prevSum, currentItem) => prevSum + currentItem.price,
+      0
+    );
+    this.cart.totalCount = this.cart.items.reduce(
+      (prevSum, currentItem) => prevSum + currentItem.quantity,
+      0
+    );
+
+    localStorage.setItem(cartKey, JSON.stringify(this.cart));
+    this.cartSubject.next(this.cart);
+  }
+
+  private getCartFromLocalStorage(): Cart {
+    const cartKey = `Cart_${this.currentUserId}`;
+    const cartJson = localStorage.getItem(cartKey);
+    return cartJson ? JSON.parse(cartJson) : new Cart();
+  }
 
   addToCart(food: Food): void {
     let cartItem = this.cart.items.find((item) => item.food.id === food.id);
@@ -36,8 +128,6 @@ export class CartService {
     let cartItem = this.cart.items.find((item) => item.food.id === foodId);
     if (!cartItem) return;
 
-    //Should be like this
-    //cartItem.food.quantity += quantity;
     cartItem.quantity += quantity;
     cartItem.price = cartItem.quantity * cartItem.food.price;
     this.setCartToLocalStorage();
@@ -53,7 +143,7 @@ export class CartService {
       cart.items[itemIndex].quantity = updatedItem.quantity;
     }
 
-    this.setCartToLocalStorage(); // Save updated cart (e.g. to localStorage)
+    this.setCartToLocalStorage();
   }
 
   getUniqueItemCount(cart: Cart): number {
@@ -75,25 +165,5 @@ export class CartService {
 
   getCart(): Cart {
     return this.cartSubject.value;
-  }
-
-  private setCartToLocalStorage(): void {
-    this.cart.totalPrice = this.cart.items.reduce(
-      (prevSum, currentItem) => prevSum + currentItem.price,
-      0
-    );
-    this.cart.totalCount = this.cart.items.reduce(
-      (prevSum, currentItem) => prevSum + currentItem.quantity,
-      0
-    );
-
-    const cartJson = JSON.stringify(this.cart);
-    localStorage.setItem('Cart', cartJson);
-    this.cartSubject.next(this.cart);
-  }
-
-  private getCartFromLocalStorage(): Cart {
-    const cartJson = localStorage.getItem('Cart');
-    return cartJson ? JSON.parse(cartJson) : new Cart();
   }
 }
