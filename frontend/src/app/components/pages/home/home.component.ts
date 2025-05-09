@@ -13,32 +13,31 @@ import { Food } from 'src/app/shared/models/Food';
 export class HomeComponent implements OnInit {
   food!: Food;
   foods: Food[] = [];
-  constructor(private foodService: FoodService, activatedRoute: ActivatedRoute,
+  constructor(
+    private foodService: FoodService,
+    activatedRoute: ActivatedRoute,
     private cartService: CartService,
-    private router: Router) {
+    private router: Router
+  ) {
     let foodsObservable: Observable<Food[]>;
     activatedRoute.params.subscribe((params) => {
       if (params.searchTerm)
-        foodsObservable = this.foodService.getAllFoodsBySearchTerm(params.searchTerm);
+        foodsObservable = this.foodService.getAllFoodsBySearchTerm(
+          params.searchTerm
+        );
       else if (params.tag)
         foodsObservable = this.foodService.getFoodByTag(params.tag);
-      else
-        foodsObservable = this.foodService.getAll();
+      else foodsObservable = this.foodService.getAll();
 
-        foodsObservable.subscribe((serverFoods) => {
-          this.foods = serverFoods;
-        })
+      foodsObservable.subscribe((serverFoods) => {
+        this.foods = serverFoods;
       });
+    });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  addToCart(){
-    if (localStorage.getItem('User'))
-      this.cartService.addToCart(this.food);
-    else
-      this.router.navigateByUrl('/login');
-      // this.router.navigateByUrl('/cart-page');
+  addToCart(food: Food) {
+    this.cartService.addToCart(food);
   }
 }

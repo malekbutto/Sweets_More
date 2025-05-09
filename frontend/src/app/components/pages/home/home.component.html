@@ -16,10 +16,15 @@
           <div class="name">
             {{ food.name }}
           </div>
-          <span class="material-icons" (click)="addToCart()" title="Add To Cart">
+          <span
+            class="material-icons cart-icon"
+            (click)="
+              addToCart(food); $event.stopPropagation(); $event.preventDefault()
+            "
+            title="Add To Cart"
+          >
             add_shopping_cart
           </span>
-          <!-- <span class="favorite {{ food.favorite ? '' : 'not' }}"> ❤ </span> -->
         </div>
         <div class="price">
           <span> {{ food.price }} NIS / {{ food.piece }} </span>
