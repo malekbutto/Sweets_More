@@ -7,7 +7,7 @@
 </app-not-found>
 <div *ngIf="cart && cart.items.length > 0" class="container">
   <ul>
-    <li *ngFor="let cartItem of cart.items">
+    <li *ngFor="let cartItem of cart.items; let i = index">
       <div>
         <a routerLink="/{{ cartItem.food.tags }}/{{ cartItem.food.id }}">
           <img [src]="cartItem.food.imageUrl" [alt]="cartItem.food.name" />
@@ -19,19 +19,14 @@
         </a>
       </div>
       <div>
-        <span class="material-icons"
-          (click)="changeQuantity(cartItem, '-1')"
-        >
-        remove_circle_outline
+        <span class="material-icons" (click)="changeQuantity(cartItem, '-1')">
+          remove_circle_outline
         </span>
         <span class="quantity">
-          {{ foodQuantity }}
+          {{ cartItem.quantity }}
         </span>
-        <span
-          class="material-icons"
-          (click)="changeQuantity(cartItem, '1')"
-        >
-        add_circle_outline
+        <span class="material-icons" (click)="changeQuantity(cartItem, '1')">
+          add_circle_outline
         </span>
       </div>
       <div>{{ cartItem.food.price }} NIS</div>
