@@ -1,8 +1,7 @@
 // import { Food } from "./app/shared/models/Food";
 // import { Tag } from "./app/shared/models/Tag";
 
-
-export const sample_foods:any[] = [
+export const sample_foods: any[] = [
   {
     id: "1",
     name: "Trilece Caramel",
@@ -10,7 +9,7 @@ export const sample_foods:any[] = [
     tags: "Sweets",
     description: "A Turkish sweet cake covered by caramel",
     piece: "Piece",
-    imageUrl:'/assets/Images/Category/Sweets/Trilece_Caramel2.jpg'
+    imageUrl: "/assets/Images/Category/Sweets/Trilece_Caramel2.jpg",
   },
   {
     id: "2",
@@ -19,7 +18,7 @@ export const sample_foods:any[] = [
     tags: "Sweets",
     description: "A Turkish sweet cake covered by strawberry gel layer",
     piece: "Piece",
-    imageUrl:'/assets/Images/Category/Sweets/Trilece_Strawberry.jpg'
+    imageUrl: "/assets/Images/Category/Sweets/Trilece_Strawberry.jpg",
   },
   {
     id: "3",
@@ -28,7 +27,7 @@ export const sample_foods:any[] = [
     tags: "Sweets",
     description: "A Turkish sweet cake covered by pistachio",
     piece: "Piece",
-    imageUrl:'/assets/Images/Category/Sweets/Trilece_Pistachio.jpg'
+    imageUrl: "/assets/Images/Category/Sweets/Trilece_Pistachio.jpg",
   },
   {
     id: "4",
@@ -37,16 +36,17 @@ export const sample_foods:any[] = [
     tags: "Sweets",
     description: "Lutos cake",
     piece: "Piece",
-    imageUrl:'/assets/Images/Category/Sweets/Lutos.jpg'
+    imageUrl: "/assets/Images/Category/Sweets/Lutos.jpg",
   },
   {
     id: "5",
     name: "Lebanese Nights Dessert",
     price: 15,
     tags: "Sweets",
-    description: "Made from a silky semolina based pudding, topped with Ashta (thick cream), whipping cream and pistachios",
+    description:
+      "Made from a silky semolina based pudding, topped with Ashta (thick cream), whipping cream and pistachios",
     piece: "Piece",
-    imageUrl:'/assets/Images/Category/Sweets/Lebanese_Nights_Dessert.jpg'
+    imageUrl: "/assets/Images/Category/Sweets/Lebanese_Nights_Dessert.jpg",
   },
   {
     id: "6",
@@ -55,16 +55,17 @@ export const sample_foods:any[] = [
     description: "Kinder Bueno cake",
     tags: "Sweets",
     piece: "Piece",
-    imageUrl:'/assets/Images/Category/Sweets/Kinder_Bueno.jpg'
+    imageUrl: "/assets/Images/Category/Sweets/Kinder_Bueno.jpg",
   },
   {
     id: "7",
     name: "Tiramisu",
     price: 12,
     tags: "Sweets",
-    description: "A coffee-flavoured Italian dessert. It is made of ladyfingers dipped in coffee, layered with a whipped mixture of eggs, sugar, and mascarpone cheese, flavoured with cocoa",
+    description:
+      "A coffee-flavoured Italian dessert. It is made of ladyfingers dipped in coffee, layered with a whipped mixture of eggs, sugar, and mascarpone cheese, flavoured with cocoa",
     piece: "Piece",
-    imageUrl:'/assets/Images/Category/Sweets/Tiramisu.jpg'
+    imageUrl: "/assets/Images/Category/Sweets/Tiramisu.jpg",
   },
   {
     id: "8",
@@ -73,25 +74,27 @@ export const sample_foods:any[] = [
     tags: "Sweets",
     description: "Layered crackers with cream and toasted vermicelli",
     piece: "Piece",
-    imageUrl:'/assets/Images/Category/Sweets/Khashkhash.jpg'
+    imageUrl: "/assets/Images/Category/Sweets/Khashkhash.jpg",
   },
   {
     id: "9",
     name: "Alfajores",
     price: 35,
     tags: "Sweets",
-    description: "It's a sandwich made of two discs of dough with a filling in between",
+    description:
+      "It's a sandwich made of two discs of dough with a filling in between",
     piece: "Packet - 0.5 KG",
-    imageUrl:'/assets/Images/Category/Sweets/Alfajores.jpg'
+    imageUrl: "/assets/Images/Category/Sweets/Alfajores.jpg",
   },
   {
     id: "10",
     name: "Macaron",
     price: 35,
     tags: "Sweets",
-    description: "Sweet meringue-based confection made with egg white, icing sugar, granulated sugar, almond meal, and food colouring.",
+    description:
+      "Sweet meringue-based confection made with egg white, icing sugar, granulated sugar, almond meal, and food colouring.",
     piece: "Packet - 0.5 KG",
-    imageUrl:'/assets/Images/Category/Sweets/Macaron.jpg'
+    imageUrl: "/assets/Images/Category/Sweets/Macaron.jpg",
   },
   {
     id: "11",
@@ -100,7 +103,7 @@ export const sample_foods:any[] = [
     tags: "Sweets",
     description: "Egyptian butter cookies",
     piece: "Packet - 0.5 KG",
-    imageUrl:'/assets/Images/Category/Sweets/Betefour.jpg'
+    imageUrl: "/assets/Images/Category/Sweets/Betefour.jpg",
   },
   {
     id: "12",
@@ -109,7 +112,7 @@ export const sample_foods:any[] = [
     tags: "Sweets",
     description: "Addictive Arabian cuisine",
     piece: "Packet - 0.5 KG",
-    imageUrl:'/assets/Images/Category/Sweets/Contessa.jpg'
+    imageUrl: "/assets/Images/Category/Sweets/Contessa.jpg",
   },
   {
     id: "13",
@@ -118,7 +121,7 @@ export const sample_foods:any[] = [
     tags: "Sweets",
     description: "The famous English Cake",
     piece: "Piece",
-    imageUrl:'/assets/Images/Category/Sweets/English_Cake.jpg'
+    imageUrl: "/assets/Images/Category/Sweets/English_Cake.jpg",
   },
   {
     id: "14",
@@ -127,16 +130,17 @@ export const sample_foods:any[] = [
     tags: "Sweets",
     description: "Flour or semolina cakes filled with dates",
     piece: "1 KG",
-    imageUrl:'/assets/Images/Category/Sweets/Dates_Cake.jpg'
+    imageUrl: "/assets/Images/Category/Sweets/Dates_Cake.jpg",
   },
   {
     id: "15",
     name: "Ghraybeh",
     price: 40,
     tags: "Sweets",
-    description: "Delicious and delicate Middle Eastern cookies that melt in your mouth",
+    description:
+      "Delicious and delicate Middle Eastern cookies that melt in your mouth",
     piece: "Packet - 0.5 KG",
-    imageUrl:'/assets/Images/Category/Sweets/Ghraybeh.jpg'
+    imageUrl: "/assets/Images/Category/Sweets/Ghraybeh.jpg",
   },
   {
     id: "16",
@@ -145,43 +149,47 @@ export const sample_foods:any[] = [
     tags: "Sweets",
     description: "Various sweet cups with different tasties",
     piece: "Piece",
-    imageUrl:'/assets/Images/Category/Sweets/Cups.jpg'
+    imageUrl: "/assets/Images/Category/Sweets/Cups.jpg",
   },
   {
     id: "17",
     name: "Strawberry Cake",
     price: 120,
     tags: "Sweets",
-    description: "Fresh strawberries, this strawberry cake is one of the simplest, most delicious cakes",
+    description:
+      "Fresh strawberries, this strawberry cake is one of the simplest, most delicious cakes",
     piece: "Cake",
-    imageUrl:'/assets/Images/Category/Sweets/Strawberry_Cake.jpg'
+    imageUrl: "/assets/Images/Category/Sweets/Strawberry_Cake.jpg",
   },
   {
     id: "18",
     name: "Ferrero Rocher Cake",
     price: 100,
     tags: "Sweets",
-    description: "This Ferrero Rocher Cake is your favorite chocolate hazelnut treat in cake form! Chocolate hazelnut cake layers and with a Nutella buttercream",
+    description:
+      "This Ferrero Rocher Cake is your favorite chocolate hazelnut treat in cake form! Chocolate hazelnut cake layers and with a Nutella buttercream",
     piece: "Cake",
-    imageUrl:'/assets/Images/Category/Sweets/Ferrero_Rocher_Cake.jpg'
+    imageUrl: "/assets/Images/Category/Sweets/Ferrero_Rocher_Cake.jpg",
   },
   {
     id: "19",
     name: "Nutella Cake",
     price: 100,
     tags: "Sweets",
-    description: "This Nutella Cake recipe is every Nutella lover’s dream cake! It’s a moist chocolate cake with a rich chocolate Nutella buttercream frosting smothered between each layer",
+    description:
+      "This Nutella Cake recipe is every Nutella lover’s dream cake! It’s a moist chocolate cake with a rich chocolate Nutella buttercream frosting smothered between each layer",
     piece: "Cake",
-    imageUrl:'/assets/Images/Category/Sweets/Nutella_Cake.jpg'
+    imageUrl: "/assets/Images/Category/Sweets/Nutella_Cake.jpg",
   },
   {
     id: "20",
     name: "Oreo Cake",
     price: 100,
     tags: "Sweets",
-    description: "Impressive chocolate cake which layered and topped with Oreo whipped cream",
+    description:
+      "Impressive chocolate cake which layered and topped with Oreo whipped cream",
     piece: "Cake",
-    imageUrl:'/assets/Images/Category/Sweets/Oreo_Cake.jpg'
+    imageUrl: "/assets/Images/Category/Sweets/Oreo_Cake.jpg",
   },
   {
     id: "51",
@@ -190,7 +198,7 @@ export const sample_foods:any[] = [
     tags: "Pastries",
     description: "Pastry filled with Beef Meat",
     piece: "Packet - 0.5 KG",
-    imageUrl:'/assets/Images/Category/Pastries/Beef_Meat.jpg'
+    imageUrl: "/assets/Images/Category/Pastries/Beef_Meat.jpg",
   },
   {
     id: "52",
@@ -199,7 +207,7 @@ export const sample_foods:any[] = [
     tags: "Pastries",
     description: "Pastry filled with Chicken",
     piece: "Packet - 0.5 KG",
-    imageUrl:'/assets/Images/Category/Pastries/Chicken.jpg'
+    imageUrl: "/assets/Images/Category/Pastries/Chicken.jpg",
   },
   {
     id: "53",
@@ -208,7 +216,7 @@ export const sample_foods:any[] = [
     tags: "Pastries",
     description: "Pastry filled with Potato",
     piece: "Packet - 0.5 KG",
-    imageUrl:'/assets/Images/Category/Pastries/Potato.jpg'
+    imageUrl: "/assets/Images/Category/Pastries/Potato.jpg",
   },
   {
     id: "54",
@@ -217,7 +225,7 @@ export const sample_foods:any[] = [
     tags: "Pastries",
     description: "Potato discs covered by bread crumbs",
     piece: "Packet - 0.5 KG",
-    imageUrl:'/assets/Images/Category/Pastries/Potato_Discs.jpg'
+    imageUrl: "/assets/Images/Category/Pastries/Potato_Discs.jpg",
   },
   {
     id: "55",
@@ -226,7 +234,7 @@ export const sample_foods:any[] = [
     tags: "Pastries",
     description: "Potato discs filled with beaf meat, covered by bread crumbs",
     piece: "Packet - 0.5 KG",
-    imageUrl:'/assets/Images/Category/Pastries/Meat_Potato_Discs.jpg'
+    imageUrl: "/assets/Images/Category/Pastries/Meat_Potato_Discs.jpg",
   },
   {
     id: "56",
@@ -235,7 +243,7 @@ export const sample_foods:any[] = [
     tags: "Pastries",
     description: "Pastry filled with Sausage",
     piece: "Packet - 0.5 KG",
-    imageUrl:'/assets/Images/Category/Pastries/Sausage.jpg'
+    imageUrl: "/assets/Images/Category/Pastries/Sausage.jpg",
   },
   {
     id: "57",
@@ -244,7 +252,7 @@ export const sample_foods:any[] = [
     tags: "Pastries",
     description: "Pastry filled with Tuna",
     piece: "Packet - 0.5 KG",
-    imageUrl:'/assets/Images/Category/Pastries/Tuna.jpg'
+    imageUrl: "/assets/Images/Category/Pastries/Tuna.jpg",
   },
   {
     id: "58",
@@ -253,7 +261,7 @@ export const sample_foods:any[] = [
     tags: "Pastries",
     description: "Pizza Pastry",
     piece: "Packet - 0.5 KG",
-    imageUrl:'/assets/Images/Category/Pastries/Pizza1.jpg'
+    imageUrl: "/assets/Images/Category/Pastries/Pizza1.jpg",
   },
   {
     id: "59",
@@ -262,7 +270,7 @@ export const sample_foods:any[] = [
     tags: "Pastries",
     description: "Pastry filled with Pizza mix",
     piece: "Packet - 0.5 KG",
-    imageUrl:'/assets/Images/Category/Pastries/Pizza2.jpg'
+    imageUrl: "/assets/Images/Category/Pastries/Pizza2.jpg",
   },
   {
     id: "60",
@@ -271,7 +279,7 @@ export const sample_foods:any[] = [
     tags: "Pastries",
     description: "Pastry filled with Olives",
     piece: "Packet - 0.5 KG",
-    imageUrl:'/assets/Images/Category/Pastries/Olives.jpg'
+    imageUrl: "/assets/Images/Category/Pastries/Olives.jpg",
   },
   {
     id: "61",
@@ -280,7 +288,7 @@ export const sample_foods:any[] = [
     tags: "Pastries",
     description: "Mozzarella cheese covered by bread crumbs",
     piece: "Packet - 0.5 KG",
-    imageUrl:'/assets/Images/Category/Pastries/Mozzarella_Sticks.jpg'
+    imageUrl: "/assets/Images/Category/Pastries/Mozzarella_Sticks.jpg",
   },
   {
     id: "62",
@@ -289,16 +297,17 @@ export const sample_foods:any[] = [
     tags: "Pastries",
     description: "Fatayer filled with Spinach or Zaatar",
     piece: "1 KG",
-    imageUrl:'/assets/Images/Category/Pastries/Fatayer.jpg'
+    imageUrl: "/assets/Images/Category/Pastries/Fatayer.jpg",
   },
   {
     id: "63",
     name: "Kibbeh",
     price: 4,
     tags: "Pastries",
-    description: "Kibbeh is a family of dishes based on spiced ground meat, onions, and grain, popular in Middle Eastern cuisine. In Levantine cuisine, kibbeh is usually made by pounding bulgur wheat together with meat into a fine paste and forming it into balls with toasted pine nuts and spices",
+    description:
+      "Kibbeh is a family of dishes based on spiced ground meat, onions, and grain, popular in Middle Eastern cuisine. In Levantine cuisine, kibbeh is usually made by pounding bulgur wheat together with meat into a fine paste and forming it into balls with toasted pine nuts and spices",
     piece: "piece",
-    imageUrl:'/assets/Images/Category/Pastries/Kibbeh.jpg'
+    imageUrl: "/assets/Images/Category/Pastries/Kibbeh.jpg",
   },
   {
     id: "81",
@@ -307,7 +316,7 @@ export const sample_foods:any[] = [
     tags: "Our Cuisine",
     description: "Filled with rice & Beaf or Lamb meat",
     piece: "Packet - 1 KG",
-    imageUrl:'/assets/Images/Category/OurCuisine/Cabbage_Roll.jpg'
+    imageUrl: "/assets/Images/Category/OurCuisine/Cabbage_Roll.jpg",
   },
   {
     id: "82",
@@ -316,7 +325,7 @@ export const sample_foods:any[] = [
     tags: "Our Cuisine",
     description: "Filled with rcse & Beaf or Lamb meat",
     piece: "Packet - 1 KG",
-    imageUrl:'/assets/Images/Category/OurCuisine/Grape_Leaves.jpg'
+    imageUrl: "/assets/Images/Category/OurCuisine/Grape_Leaves.jpg",
   },
   {
     id: "83",
@@ -325,7 +334,7 @@ export const sample_foods:any[] = [
     tags: "Our Cuisine",
     description: "“Palestinian couscous” with chicken and chickpeas",
     piece: "1 KG",
-    imageUrl:'/assets/Images/Category/OurCuisine/Maftool.jpg'
+    imageUrl: "/assets/Images/Category/OurCuisine/Maftool.jpg",
   },
   {
     id: "84",
@@ -334,7 +343,7 @@ export const sample_foods:any[] = [
     tags: "Our Cuisine",
     description: "Traditional chicken meat",
     piece: "Packet - 1 KG",
-    imageUrl:'/assets/Images/Category/OurCuisine/Schnitzel.jpg'
+    imageUrl: "/assets/Images/Category/OurCuisine/Schnitzel.jpg",
   },
   {
     id: "85",
@@ -343,7 +352,7 @@ export const sample_foods:any[] = [
     tags: "Our Cuisine",
     description: "Saj Bread filled with Beaf meat",
     piece: "Packet - 0.5 KG",
-    imageUrl:'/assets/Images/Category/OurCuisine/Shawarma_Roll.jpg'
+    imageUrl: "/assets/Images/Category/OurCuisine/Shawarma_Roll.jpg",
   },
   {
     id: "86",
@@ -352,7 +361,7 @@ export const sample_foods:any[] = [
     tags: "Our Cuisine",
     description: "Tortilla filled with Shawarma",
     piece: "Packet - 0.5 KG",
-    imageUrl:'/assets/Images/Category/OurCuisine/Shawarma_Tortilla.jpg'
+    imageUrl: "/assets/Images/Category/OurCuisine/Shawarma_Tortilla.jpg",
   },
   {
     id: "87",
@@ -361,25 +370,27 @@ export const sample_foods:any[] = [
     tags: "Our Cuisine",
     description: "Saj Bread filled with Cheese & Olives",
     piece: "Packet - 0.5 KG",
-    imageUrl:'/assets/Images/Category/OurCuisine/Cheese_Olives_Roll.jpg'
+    imageUrl: "/assets/Images/Category/OurCuisine/Cheese_Olives_Roll.jpg",
   },
   {
     id: "88",
     name: "Shish Barak",
     price: 60,
     tags: "Our Cuisine",
-    description: "These are Middle Eastern meat filled dumplings cooked in a yogurt based sauce. It is one of the top comfort foods in Arabic cuisine",
+    description:
+      "These are Middle Eastern meat filled dumplings cooked in a yogurt based sauce. It is one of the top comfort foods in Arabic cuisine",
     piece: "Packet - 1 KG",
-    imageUrl:'/assets/Images/Category/OurCuisine/Shish_Barak.jpg'
+    imageUrl: "/assets/Images/Category/OurCuisine/Shish_Barak.jpg",
   },
   {
     id: "89",
     name: "Sheikh Al-Mahshi",
     price: 40,
     tags: "Our Cuisine",
-    description: "A popular dish in the Middle East consisting of eggplant or zucchini stuffed with minced lamb meat and nuts, bathed in a yogurt sauce or tomato sauce. It is also known as محشي الكوسة باللبن",
+    description:
+      "A popular dish in the Middle East consisting of eggplant or zucchini stuffed with minced lamb meat and nuts, bathed in a yogurt sauce or tomato sauce. It is also known as محشي الكوسة باللبن",
     piece: "Packet - 1 KG",
-    imageUrl:'/assets/Images/Category/OurCuisine/Sheikh_Al_Mahshi.jpg'
+    imageUrl: "/assets/Images/Category/OurCuisine/Sheikh_Al_Mahshi.jpg",
   },
   {
     id: "90",
@@ -388,23 +399,23 @@ export const sample_foods:any[] = [
     tags: "Our Cuisine",
     description: "Pumpkin cooked and covered by Sugar & Water syrop",
     piece: "Packet - 0.5 KG",
-    imageUrl:'/assets/Images/Category/OurCuisine/Sweet_Pumpkin.jpg'
-  }
-]
+    imageUrl: "/assets/Images/Category/OurCuisine/Sweet_Pumpkin.jpg",
+  },
+];
 
-export const sample_tags:any[] = [
-  {name: 'All', count:43},
-  {name: 'Sweets', count:20},
-  {name: 'Pastries', count:13},
-  {name: 'Our Cuisine', count:10},
-]
+export const sample_tags: any[] = [
+  { name: "All", count: 43 },
+  { name: "Sweets", count: 20 },
+  { name: "Pastries", count: 13 },
+  { name: "Our Cuisine", count: 10 },
+];
 
 export const sample_users: any[] = [
   {
     name: "John Doe",
     email: "john@gmail.com",
     password: "12345",
-    // phone: "052332451",
+    phone: "052332451",
     address: "Toronto On",
     isAdmin: true,
   },
@@ -412,8 +423,16 @@ export const sample_users: any[] = [
     name: "Jane Doe",
     email: "jane@gmail.com",
     password: "12345",
-    // phone: "0525111222",
+    phone: "0525111222",
     address: "Shanghai",
+    isAdmin: false,
+  },
+  {
+    name: "Yahia Butto",
+    email: "yahia@gmail.com",
+    password: "112233",
+    phone: "052-3792338",
+    address: "5048/34 Nazareth",
     isAdmin: false,
   },
 ];
@@ -422,10 +441,10 @@ export const sample_orders: any[] = [
   {
     name: "Malek Butto",
     address: "5048/34 Nazareth",
-    addressLatLng: {lat: 32.7022557, lng: 35.2837873},
+    addressLatLng: { lat: 32.7022557, lng: 35.2837873 },
     totalPrice: 132,
     items: [],
-    user: '63de7f1f8972bbe783da0cc0',
+    user: "63de7f1f8972bbe783da0cc0",
     createdAt: "2023-02-04T14:24:47.127+00:00",
   },
 ];
