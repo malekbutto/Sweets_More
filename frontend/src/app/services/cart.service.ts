@@ -11,6 +11,7 @@ import { Food } from '../shared/models/Food';
 export class CartService {
   private cart: Cart = this.getCartFromLocalStorage();
   private cartSubject: BehaviorSubject<Cart> = new BehaviorSubject(this.cart);
+  public cartObservable = this.cartSubject.asObservable();
 
   constructor(private toastrService: ToastrService) {}
 
@@ -55,6 +56,14 @@ export class CartService {
     this.setCartToLocalStorage(); // Save updated cart (e.g. to localStorage)
   }
 
+  getUniqueItemCount(cart: Cart): number {
+    return cart.items.length;
+  }
+
+  getTotalCount(cart: Cart): number {
+    return cart.items.reduce((sum, item) => sum + item.quantity, 0);
+  }
+
   clearCart(): void {
     this.cart = new Cart();
     this.setCartToLocalStorage();
@@ -70,8 +79,7 @@ export class CartService {
 
   private setCartToLocalStorage(): void {
     this.cart.totalPrice = this.cart.items.reduce(
-      (prevSum, currentItem) =>
-        prevSum + currentItem.price * currentItem.quantity,
+      (prevSum, currentItem) => prevSum + currentItem.price,
       0
     );
     this.cart.totalCount = this.cart.items.reduce(
