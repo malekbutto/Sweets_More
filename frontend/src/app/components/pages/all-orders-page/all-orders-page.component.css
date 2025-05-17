@@ -24,3 +24,84 @@ td{
   text-align: center;
   border-bottom: 1px solid darkgray;
 }
+
+
+/* Page Title */
+h3 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #a6362f;
+  margin-bottom: 20px;
+}
+
+/* Filter Section */
+.filter-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.filter-section label {
+  font-weight: bold;
+}
+
+.filter-section select {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+table tr:first-child {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #e0e0e0;
+  vertical-align: top;
+}
+
+/* Action icons */
+.material-symbols-outlined {
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  margin: 0 2px;
+  transition: background-color 0.2s ease;
+  font-size: 20px;
+}
+
+.material-symbols-outlined:hover {
+  background-color: #f0f0f0;
+}
+
+/* Responsive table (optional) */
+@media (max-width: 768px) {
+  .filter-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  table td {
+    padding: 10px;
+  }
+
+  .material-symbols-outlined {
+    font-size: 18px;
+  }
+}

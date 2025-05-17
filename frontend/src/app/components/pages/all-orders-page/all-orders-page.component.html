@@ -1,48 +1,40 @@
 <h3>All Orders</h3>
-
+<h3>
+  <div class="filter-section">
+    <label for="nameFilter">Filter By Name:</label>
+    <select
+      id="nameFilter"
+      [(ngModel)]="selectedName"
+      (ngModelChange)="onFilterChange()"
+    >
+      <option value="">All</option>
+      <option *ngFor="let name of uniqueNames" [value]="name">
+        {{ name }}
+      </option>
+    </select>
+  </div>
+</h3>
 <table>
-  <tr colspan="2">
-    <td>
-      <strong> Name </strong>
-    </td>
-    <td>
-      <strong> Address </strong>
-    </td>
-    <!-- <td>
-      <strong> Address For Shipping </strong>
-    </td> -->
+  <tr>
+    <td><strong> Name </strong></td>
+    <td><strong> Address </strong></td>
     <td>
       <strong> Items <br />(Quantity) </strong>
     </td>
-    <td>
-      <strong> Total Price </strong>
-    </td>
-    <td>
-      <strong> Created At </strong>
-    </td>
-    <td>
-      <strong> Manage </strong>
-    </td>
+    <td><strong> Total Price </strong></td>
+    <td><strong> Created At </strong></td>
+    <td><strong> Manage </strong></td>
   </tr>
-  <tr *ngFor="let order of orders">
-    <td>
-      {{ order.name }}
-    </td>
-    <td>
-      {{ order.address }}
-    </td>
-    <!-- <td>
-        "{{ order.addressLatLng }}"
-    </td> -->
+  <tr *ngFor="let order of filteredOrders">
+    <td>{{ order.name }}</td>
+    <td>{{ order.address }}</td>
     <td>
       <p *ngFor="let item of order.items">
         ({{ item.quantity }})-{{ item.food.name }}
       </p>
     </td>
     <td>{{ order.totalPrice }} NIS</td>
-    <td>
-      {{ order.createdAt }}
-    </td>
+    <td>{{ order.createdAt }}</td>
     <td>
       <span class="material-symbols-outlined" title="Confirm"> priority </span>
       <span class="material-symbols-outlined"> more_vert </span>

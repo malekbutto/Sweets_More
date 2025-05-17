@@ -7,22 +7,46 @@ import { Order } from 'src/app/shared/models/Order';
 @Component({
   selector: 'app-all-orders-page',
   templateUrl: './all-orders-page.component.html',
-  styleUrls: ['./all-orders-page.component.css']
+  styleUrls: ['./all-orders-page.component.css'],
 })
 export class AllOrdersPageComponent implements OnInit {
   // @Input()
   // users!:User[];
-  orders: Order[] = [];
-  constructor(private userService: OrderService, activatedRoute: ActivatedRoute) {
+  // orders: Order[] = [];
+  allOrders: Order[] = [];
+  filteredOrders: Order[] = [];
+  uniqueNames: string[] = [];
+  selectedName: string = '';
+  constructor(
+    private orderService: OrderService,
+    activatedRoute: ActivatedRoute
+  ) {
     let ordersObservable: Observable<Order[]>;
     activatedRoute.params.subscribe(() => {
-        ordersObservable = this.userService.getAllOrders();
+      ordersObservable = this.orderService.getAllOrders();
 
-        ordersObservable.subscribe((serverOrders) => {
-          this.orders = serverOrders;
-        })
+      ordersObservable.subscribe((serverOrders) => {
+        this.allOrders = serverOrders;
       });
+    });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // Fetch orders (example)
+    this.orderService.getAllOrders().subscribe((orders) => {
+      this.allOrders = orders;
+      this.filteredOrders = orders;
+      this.uniqueNames = [...new Set(orders.map((o) => o.name))]; // extract unique names
+    });
+  }
+
+  onFilterChange() {
+    if (this.selectedName) {
+      this.filteredOrders = this.allOrders.filter(
+        (order) => order.name === this.selectedName
+      );
+    } else {
+      this.filteredOrders = this.allOrders;
+    }
+  }
 }

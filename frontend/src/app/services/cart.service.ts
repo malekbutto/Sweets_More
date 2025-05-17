@@ -22,68 +22,23 @@ export class CartService {
   public setCurrentUser(userId: string | null): void {
     if (userId) {
       this.currentUserId = userId;
-      // this.migrateGuestCart();
-    } else {
-      this.currentUserId = this.getOrCreateGuestId();
+
+      this.loadUserCart();
     }
-    this.loadUserCart();
   }
 
-  private getCurrentUserId(): string {
+  public getCurrentUserId(): string {
     const userJson = localStorage.getItem('User');
-    return userJson ? JSON.parse(userJson).id : this.getOrCreateGuestId();
+    return userJson ? JSON.parse(userJson).id : '';
   }
 
   private initializeUser(): void {
-    const userJson = localStorage.getItem('User');
-    this.currentUserId = userJson
-      ? JSON.parse(userJson).id
-      : this.getOrCreateGuestId();
+    this.currentUserId = this.getCurrentUserId();
   }
-
-  private getOrCreateGuestId(): string {
-    let guestId = localStorage.getItem('guestId');
-    if (!guestId) {
-      guestId = 'guest_' + Math.random().toString(36).substring(2, 11);
-      localStorage.setItem('guestId', guestId);
-    }
-    return guestId;
-  }
-
-  // private migrateGuestCart(): void {
-  //   const guestId = localStorage.getItem('guestId');
-  //   if (!guestId || guestId === this.currentUserId) return;
-
-  //   const guestCartKey = `Cart_${guestId}`;
-  //   const guestCartJson = localStorage.getItem(guestCartKey);
-
-  //   if (guestCartJson) {
-  //     const guestCart = JSON.parse(guestCartJson);
-  //     const userCart = this.cart;
-
-  //     // Merge guest cart with user cart
-  //     guestCart.items.forEach((guestItem: CartItem) => {
-  //       const existingItem = userCart.items.find(
-  //         (item) => item.food.id === guestItem.food.id
-  //       );
-  //       if (existingItem) {
-  //         existingItem.quantity += guestItem.quantity;
-  //         existingItem.price = existingItem.quantity * existingItem.food.price;
-  //       } else {
-  //         userCart.items.push(guestItem);
-  //       }
-  //     });
-
-  //     // Clean up guest cart
-  //     localStorage.removeItem(guestCartKey);
-  //     localStorage.removeItem('guestId');
-  //     this.setCartToLocalStorage();
-  //   }
-  // }
 
   private loadUserCart(): void {
-    this.cart = this.getCartFromLocalStorage();
-    this.cartSubject.next(this.cart);
+    this.cart = this.getCartFromLocalStorage() || [];
+    // this.cartSubject.next(this.cart);
   }
 
   private setCartToLocalStorage(): void {
@@ -101,7 +56,7 @@ export class CartService {
     this.cartSubject.next(this.cart);
   }
 
-  private getCartFromLocalStorage(): Cart {
+  public getCartFromLocalStorage(): Cart {
     const cartKey = `Cart_${this.currentUserId}`;
     const cartJson = localStorage.getItem(cartKey);
     return cartJson ? JSON.parse(cartJson) : new Cart();
@@ -129,7 +84,8 @@ export class CartService {
     if (!cartItem) return;
 
     cartItem.quantity += quantity;
-    cartItem.price = cartItem.quantity * cartItem.food.price;
+    if (cartItem.quantity < 1) return;
+    else cartItem.price = cartItem.quantity * cartItem.food.price;
     this.setCartToLocalStorage();
   }
 
