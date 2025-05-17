@@ -18,6 +18,7 @@
   <tr>
     <td><strong> Name </strong></td>
     <td><strong> Address </strong></td>
+    <td><strong> Order Number </strong></td>
     <td>
       <strong> Items <br />(Quantity) </strong>
     </td>
@@ -28,6 +29,7 @@
   <tr *ngFor="let order of filteredOrders">
     <td>{{ order.name }}</td>
     <td>{{ order.address }}</td>
+    <td>{{ order.orderNumber }}</td>
     <td>
       <p *ngFor="let item of order.items">
         ({{ item.quantity }})-{{ item.food.name }}
