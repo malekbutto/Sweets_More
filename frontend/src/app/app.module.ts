@@ -78,10 +78,11 @@ import { UsersPageComponent } from './components/pages/users-page/users-page.com
     HttpClientModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
-      timeOut: 2000,
-      positionClass: 'toast-bottom-right',
+      timeOut: 3000,
+      positionClass: 'toast-top-left',
       newestOnTop: false,
       closeButton: true,
+      preventDuplicates: true,
     }),
     FontAwesomeModule,
     FormsModule,
