@@ -13,6 +13,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class myOrdersComponent implements OnInit {
   filteredOrders: Order[] = [];
+  sortBy: string = '';
+  sortDirection: 'asc' | 'desc' = 'asc';
   constructor(
     private userService: UserService,
     private orderService: OrderService
@@ -30,6 +32,29 @@ export class myOrdersComponent implements OnInit {
     const username = this.userService.currentUser.name;
     this.orderService.getOrdersByUser(username).subscribe((orders) => {
       this.filteredOrders = orders;
+    });
+  }
+
+  onSort(field: keyof Order) {
+    if (this.sortBy === field) {
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sortBy = field;
+      this.sortDirection = 'asc';
+    }
+
+    this.filteredOrders.sort((a, b) => {
+      let valueA = a[field] ?? '';
+      let valueB = b[field] ?? '';
+
+      if (field === 'createdAt') {
+        valueA = new Date(a.createdAt).getTime();
+        valueB = new Date(b.createdAt).getTime();
+      }
+
+      if (valueA < valueB) return this.sortDirection === 'asc' ? -1 : 1;
+      if (valueA > valueB) return this.sortDirection === 'asc' ? 1 : -1;
+      return 0;
     });
   }
 }

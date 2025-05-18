@@ -10,13 +10,12 @@ import { Order } from 'src/app/shared/models/Order';
   styleUrls: ['./all-orders-page.component.css'],
 })
 export class AllOrdersPageComponent implements OnInit {
-  // @Input()
-  // users!:User[];
-  // orders: Order[] = [];
   allOrders: Order[] = [];
   filteredOrders: Order[] = [];
   uniqueNames: string[] = [];
   selectedName: string = '';
+  sortBy: string = '';
+  sortDirection: 'asc' | 'desc' = 'asc';
   constructor(
     private orderService: OrderService,
     activatedRoute: ActivatedRoute
@@ -48,5 +47,28 @@ export class AllOrdersPageComponent implements OnInit {
     } else {
       this.filteredOrders = this.allOrders;
     }
+  }
+
+  onSort(field: keyof Order) {
+    if (this.sortBy === field) {
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sortBy = field;
+      this.sortDirection = 'asc';
+    }
+
+    this.filteredOrders.sort((a, b) => {
+      let valueA = a[field] ?? '';
+      let valueB = b[field] ?? '';
+
+      if (field === 'createdAt') {
+        valueA = new Date(a.createdAt).getTime();
+        valueB = new Date(b.createdAt).getTime();
+      }
+
+      if (valueA < valueB) return this.sortDirection === 'asc' ? -1 : 1;
+      if (valueA > valueB) return this.sortDirection === 'asc' ? 1 : -1;
+      return 0;
+    });
   }
 }

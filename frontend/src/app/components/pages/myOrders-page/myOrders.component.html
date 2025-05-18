@@ -6,18 +6,40 @@
     <td>
       <strong> Name </strong>
     </td>
-    <td>
-      <strong> Address </strong>
+    <td (click)="onSort('address')">
+      <strong>
+        Address
+        <span *ngIf="sortBy === 'address'">
+          {{ sortDirection === "asc" ? "▲" : "▼" }}
+        </span>
+      </strong>
     </td>
-    <td><strong> Order Number </strong></td>
+    <td (click)="onSort('orderNumber')">
+      <strong>
+        Order Number
+        <span *ngIf="sortBy === 'orderNumber'">
+          {{ sortDirection === "asc" ? "▲" : "▼" }}
+        </span>
+      </strong>
+    </td>
     <td>
       <strong> Items <br />(Quantity)</strong>
     </td>
-    <td>
-      <strong> Total Price </strong>
+    <td (click)="onSort('totalPrice')">
+      <strong>
+        Total Price
+        <span *ngIf="sortBy === 'totalPrice'">
+          {{ sortDirection === "asc" ? "▲" : "▼" }}
+        </span>
+      </strong>
     </td>
-    <td>
-      <strong> Created At </strong>
+    <td (click)="onSort('createdAt')">
+      <strong>
+        Created At
+        <span *ngIf="sortBy === 'createdAt'">
+          {{ sortDirection === "asc" ? "▲" : "▼" }}
+        </span>
+      </strong>
     </td>
     <td>
       <strong> Manage </strong>
