@@ -90,4 +90,25 @@ export class CheckoutPageComponent implements OnInit {
       },
     });
   }
+
+  navigateToAddress(event: Event) {
+    event.preventDefault();
+    const address = this.checkoutForm.get('address')?.value;
+
+    if (address) {
+      // Encode the address for URL
+      const encodedAddress = encodeURIComponent(address);
+      // Open Google Maps with the address
+      window.open(
+        `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`,
+        '_blank'
+      );
+    } else {
+      // Show error message if address is empty
+      this.toastrService.warning(
+        'Please enter an address first',
+        'No Address Provided'
+      );
+    }
+  }
 }
