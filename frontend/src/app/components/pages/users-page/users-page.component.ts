@@ -17,11 +17,12 @@ export class UsersPageComponent implements OnInit {
   disableRole = true;
   admin = true;
   users: User[] = [];
+  sortBy: string = '';
+  sortDirection: 'asc' | 'desc' = 'asc';
   constructor(
     private userService: UserService,
     activatedRoute: ActivatedRoute,
-    private toastrService:ToastrService,
-    // private dialogService: DialogService
+    private toastrService: ToastrService // private dialogService: DialogService
   ) {
     let usersObservable: Observable<User[]>;
     activatedRoute.params.subscribe(() => {
@@ -33,20 +34,15 @@ export class UsersPageComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
-  }
-
-  openDialog():void {
-    this.toastrService.success(`Role changed successfully`,'')
-    this.users.forEach(user => {
-      if (user.isAdmin)
-      {
+  openDialog(): void {
+    this.toastrService.success(`Role changed successfully`, '');
+    this.users.forEach((user) => {
+      if (user.isAdmin) {
         user.isAdmin = false;
         this.admin = false;
-      }
-      else
-      {
+      } else {
         user.isAdmin = true;
         this.admin = true;
       }
@@ -54,26 +50,26 @@ export class UsersPageComponent implements OnInit {
     alert(this.admin);
   }
 
-  updateUser():void {
+  updateUser(): void {
     this.disableValue = true;
-    this.toastrService.success(`Details updated successfully`,'')
-    let {name, email, address, isAdmin} = this.userService.currentUser;
+    this.toastrService.success(`Details updated successfully`, '');
+    let { name, email, address, isAdmin } = this.userService.currentUser;
     // console.log(name.value);
     // console.log(email);
     // console.log(address);
     // console.log(isAdmin);
   }
 
-  enableEdit():void {
+  enableEdit(): void {
     this.disableValue = false;
   }
 
-  changeRole():void{
+  changeRole(): void {
     this.disableRole = false;
   }
 
-  deleteUser(user:User):void {
-    alert("Deleted");
+  deleteUser(user: User): void {
+    alert('Deleted');
     // this.dialogService.openConfirmDialog('Are your sure to delete this user?')
     // .afterClosed().subscribe((res: boolean) => {
     //   if (res){
@@ -82,5 +78,23 @@ export class UsersPageComponent implements OnInit {
     //   }
 
     // });
+  }
+
+  onSort(field: keyof User) {
+    if (this.sortBy === field) {
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sortBy = field;
+      this.sortDirection = 'asc';
+    }
+
+    this.users.sort((a, b) => {
+      let valueA = a[field] ?? '';
+      let valueB = b[field] ?? '';
+
+      if (valueA < valueB) return this.sortDirection === 'asc' ? -1 : 1;
+      if (valueA > valueB) return this.sortDirection === 'asc' ? 1 : -1;
+      return 0;
+    });
   }
 }

@@ -1,8 +1,14 @@
 <h3>Users List</h3>
 <table>
   <tr>
-    <td>
-      <strong> Name </strong>
+    <td><strong> # </strong></td>
+    <td (click)="onSort('name')">
+      <strong>
+        Name
+        <span *ngIf="sortBy === 'name'">
+          {{ sortDirection === "asc" ? "▲" : "▼" }}
+        </span>
+      </strong>
     </td>
     <td>
       <strong> Email </strong>
@@ -10,11 +16,21 @@
     <td>
       <strong> Phone </strong>
     </td>
-    <td>
-      <strong> Address </strong>
+    <td (click)="onSort('address')">
+      <strong>
+        Address
+        <span *ngIf="sortBy === 'address'">
+          {{ sortDirection === "asc" ? "▲" : "▼" }}
+        </span>
+      </strong>
     </td>
-    <td>
-      <strong> Admin </strong>
+    <td (click)="onSort('isAdmin')">
+      <strong>
+        Admin
+        <span *ngIf="sortBy === 'isAdmin'">
+          {{ sortDirection === "asc" ? "▲" : "▼" }}
+        </span>
+      </strong>
       <span class="role" *ngIf="!disableValue">
         <button class="changeRole" (click)="changeRole()">Change Role</button>
       </span>
@@ -23,7 +39,8 @@
       <strong> Manage </strong>
     </td>
   </tr>
-  <tr *ngFor="let user of users">
+  <tr *ngFor="let user of users; let i = index">
+    <td>{{ i + 1 }}</td>
     <td>
       <input
         type="text"
