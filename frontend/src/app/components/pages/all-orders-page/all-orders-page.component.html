@@ -16,6 +16,7 @@
 </h3>
 <table>
   <tr>
+    <td><strong> # </strong></td>
     <td><strong> Name </strong></td>
     <td><strong> Address </strong></td>
     <td><strong> Order Number </strong></td>
@@ -26,7 +27,8 @@
     <td><strong> Created At </strong></td>
     <td><strong> Manage </strong></td>
   </tr>
-  <tr *ngFor="let order of filteredOrders">
+  <tr *ngFor="let order of filteredOrders; let i = index">
+    <td>{{ i + 1 }}</td>
     <td>{{ order.name }}</td>
     <td>{{ order.address }}</td>
     <td>{{ order.orderNumber }}</td>
