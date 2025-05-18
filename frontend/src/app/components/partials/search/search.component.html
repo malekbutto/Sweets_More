@@ -1,3 +1,38 @@
-<div class="search">
-  <input #s type="text" placeholder="Search..." (keyup.enter)="search(s.value)" (change)="search(s.value)" [value]="searchTerm">
+<div class="search-container">
+  <input
+    #searchInput
+    type="text"
+    placeholder="Search..."
+    (input)="onSearchInput(searchInput.value)"
+    (keyup.enter)="search(searchInput.value)"
+    (focus)="showResults = searchTerm.length > 0"
+    [value]="searchTerm"
+    (change)="search(searchInput.value)"
+    (blur)="hideResults()"
+  />
+  <div class="search-results" *ngIf="showResults">
+    <div class="loading-spinner" *ngIf="isLoading">
+      <div class="spinner"></div>
+      <span>Searching...</span>
+    </div>
+
+    <div
+      class="result-item"
+      *ngFor="let food of filteredFoods"
+      (mousedown)="selectFood(food)"
+    >
+      <img [src]="food.imageUrl" alt="{{ food.name }}" class="food-image" />
+      <div class="food-info">
+        <div class="food-name">{{ food.name }}</div>
+        <div class="food-price">{{ food.price | currency }}</div>
+      </div>
+    </div>
+
+    <div
+      class="no-results"
+      *ngIf="!isLoading && filteredFoods.length === 0 && searchTerm"
+    >
+      No foods found for "{{ searchTerm }}"
+    </div>
+  </div>
 </div>
