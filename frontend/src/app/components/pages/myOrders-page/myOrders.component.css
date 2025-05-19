@@ -56,3 +56,31 @@ td{
   }
 }
 
+
+.navigate-button {
+  background: #FF6B6B;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flexbox;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 8px; /* Adjust to align with your input field */
+}
+
+.navigate-button:hover {
+  background: #e05555;
+}
+
+.navigate-button svg {
+  width: 10px;
+  height: 10px;
+  color: white;
+  align-items: center;
+  justify-content: center;
+}
+
+

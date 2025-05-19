@@ -102,3 +102,42 @@ table td {
     font-size: 18px;
   }
 }
+
+
+.address-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.address-input-wrapper text-input {
+  flex: 1;
+  margin-right: 8px; /* Space between input and button */
+}
+
+.navigate-button {
+  background: #FF6B6B;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flexbox;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px; /* Adjust to align with your input field */
+}
+
+.navigate-button:hover {
+  background: #e05555;
+}
+
+.navigate-button svg {
+  width: 10px;
+  height: 10px;
+  color: white;
+  align-items: center;
+  justify-content: center;
+}
+
